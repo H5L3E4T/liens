@@ -2,7 +2,7 @@
 
 Mes guides, mes vidéos « Le Tchek IA » et les outils IA que je recommande.
 
-**Site :** https://loan-liens.vercel.app/ (Vercel, mis à jour automatiquement à chaque envoi sur `main`)
+**Site :** https://loanhsl.app/ (Vercel, mis à jour automatiquement à chaque envoi sur `main`)
 
 - `index.html` : la page de liens (vidéos, boîte à outils, bandeau de logos cliquable).
 - `guide/` : le guide « Créer ton 1er outil avec l'IA ».
