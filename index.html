@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<title>Les liens de Loan</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Les guides, les vidéos « Le Tchek IA » et les outils IA que Loan recommande.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Les liens de Loan">
+<meta property="og:description" content="Mes guides, mes vidéos « Le Tchek IA » et les outils IA que je recommande.">
+<meta property="og:image" content="https://h5l3e4t.github.io/liens/img/og.jpg">
+<meta property="og:url" content="https://h5l3e4t.github.io/liens/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/mascotte.png">
+<link rel="apple-touch-icon" href="img/mascotte.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Charte « Col roulé » : une scène d'ouverture encre (toujours sombre) qui frappe, puis la fiche papier façon iOS.
+   Mouvement : mot qui défile dans le titre, mascotte qui flotte, bandeau de logos en continu, cartes qui montent au chargement. */
+:root{
+  --paper:#F4F1EA; --ink:#0E2A33; --soft:#566A70; --faint:#8C9A9D;
+  --lagon:#1F6F8B; --lagon-hi:#6BBAD4; --camel:#C8A27A; --camel-soft:rgba(200,162,122,.32);
+  --row:rgba(255,255,255,.78); --row-line:rgba(14,42,51,.08); --tile:#fff; --halo2:rgba(200,162,122,.30);
+  --stage:#0E2A33; --stage-fg:#F4F1EA; --stage-soft:rgba(244,241,234,.72);
+  --wm-op:.045; --wm-op-m:.06;
+  --head:'Bricolage Grotesque',ui-sans-serif,system-ui,sans-serif;
+  --body:'Instrument Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0B1D23; --ink:#EEF1EC; --soft:#A6B7BA; --faint:#7A8F93; --lagon:#6BBAD4; --camel:#DDBB92; --camel-soft:rgba(221,187,146,.22);
+  --row:rgba(26,56,66,.78); --row-line:rgba(255,255,255,.08); --tile:#F4F1EA; --halo2:rgba(200,162,122,.12);
+  --stage:#123843; --wm-op:.06; --wm-op-m:.08; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0B1D23; --ink:#EEF1EC; --soft:#A6B7BA; --faint:#7A8F93; --lagon:#6BBAD4; --camel:#DDBB92; --camel-soft:rgba(221,187,146,.22);
+  --row:rgba(26,56,66,.78); --row-line:rgba(255,255,255,.08); --tile:#F4F1EA; --halo2:rgba(200,162,122,.12);
+  --stage:#123843; --wm-op:.06; --wm-op-m:.08; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:16px/1.45 var(--body);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:-10%;z-index:-1;pointer-events:none;background:radial-gradient(50vw 40vw at 100% 95%,var(--halo2),transparent 70%)}
+.wrap{max-width:560px;margin:0 auto;padding-block:20px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:26px}
+
+/* ---------- scène d'ouverture ---------- */
+.stage{position:relative;overflow:hidden;border-radius:32px;background:var(--stage);color:var(--stage-fg);padding:30px 24px 0;isolation:isolate;box-shadow:0 30px 60px -30px rgba(14,42,51,.7)}
+.stage .h{position:absolute;border-radius:50%;filter:blur(8px);z-index:-1}
+.stage .h1{width:340px;height:340px;left:-120px;top:-120px;background:radial-gradient(circle,rgba(31,111,139,.75),transparent 68%)}
+.stage .h2{width:380px;height:380px;right:-150px;bottom:-60px;background:radial-gradient(circle,rgba(200,162,122,.55),transparent 66%)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font:700 12px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--stage-soft);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:8px 12px;border-radius:999px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:#4ADE80;box-shadow:0 0 0 0 rgba(74,222,128,.6)}
+h1{font:800 clamp(38px,11vw,54px)/.98 var(--head);letter-spacing:-.04em;margin:16px 0 0;text-wrap:balance}
+/* le mot qui change a sa propre ligne, de hauteur fixe : la carte ne bouge jamais, quel que soit le mot ou l'écran */
+.rot{display:block;height:1.04em;overflow:hidden;line-height:1.04;white-space:nowrap}
+.rot span{display:inline-block;color:var(--camel);transform-origin:0 70%}
+h1 .hl{display:inline-block}
+.hl{position:relative;white-space:nowrap}
+.hl::after{content:"";position:absolute;left:-4px;right:-4px;bottom:.06em;height:.3em;border-radius:6px;background:var(--lagon);opacity:.85;z-index:-1;transform-origin:0 50%}
+.lead{color:var(--stage-soft);margin:14px 0 0;max-width:30ch;font-size:16px}
+.mas{position:relative;height:230px;margin-top:6px}
+.mas img{position:absolute;right:-6px;bottom:22px;width:200px;height:200px;object-fit:contain;transform-origin:50% 100%}
+.mas .ped{position:absolute;right:16px;bottom:8px;width:156px;height:30px;border-radius:50%;background:radial-gradient(ellipse at 50% 40%,rgba(255,255,255,.5),rgba(255,255,255,.08) 70%)}
+.stats{position:absolute;left:0;bottom:30px;display:flex;flex-direction:column;gap:8px}
+.stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:10px 14px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.stat b{display:block;font:800 26px/1 var(--head);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--stage-soft)}
+
+/* bandeau de logos */
+.marq{margin:0 -24px;padding:14px 0 10px;border-top:1px solid rgba(255,255,255,.1);overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;gap:12px;width:max-content}
+.marq::-webkit-scrollbar{display:none}
+.marq.drag{cursor:grabbing}
+.marq-n{margin:0 0 16px;font-size:12px;color:var(--stage-soft);text-align:center}
+.marq-n span{white-space:nowrap}
+.marq-n i,.track .lg.pt::after{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--camel);vertical-align:1px}
+.track{padding:0 24px}
+.track .lg{position:relative;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;-webkit-user-drag:none}
+.track .lg.pt::after{content:"";position:absolute;top:4px;right:4px;box-shadow:0 0 0 2px #F4F1EA}
+.track .lg:hover,.track .lg:focus-visible{transform:translateY(-3px) scale(1.08);box-shadow:0 8px 18px -8px rgba(0,0,0,.6)}
+.track .lg:focus-visible{outline:2px solid var(--camel);outline-offset:2px}
+.track .lg img{pointer-events:none}
+.track .lg{width:44px;height:44px;border-radius:12px;background:#F4F1EA;display:grid;place-items:center;overflow:hidden;flex:none}
+.track .lg img{width:100%;height:100%;object-fit:cover}
+.track .lg.ic img{width:58%;height:58%;object-fit:contain}
+
+/* ---------- à la une ---------- */
+.une{position:relative;display:block;border-radius:26px;overflow:hidden;background:var(--row);border:1px solid var(--row-line);color:inherit;text-decoration:none;box-shadow:0 22px 40px -28px rgba(14,42,51,.55)}
+.une .cv{position:relative;aspect-ratio:4/3;max-width:100%;overflow:hidden;background:#EFEAE0}
+.une .cv img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.une:hover .cv img{transform:scale(1.04)}
+.new{position:absolute;right:14px;bottom:14px;display:inline-flex;align-items:center;gap:8px;font:700 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;background:var(--stage);color:#F4F1EA;padding:8px 12px;border-radius:999px}
+.new i{width:8px;height:8px;border-radius:50%;background:var(--camel)}
+.une .bd{padding:16px 18px 18px;display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap}
+.une .bd .t{font:800 22px/1.1 var(--head);letter-spacing:-.02em}
+.une .bd .d{font-size:14px;color:var(--soft);margin-top:3px}
+.cta{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;font:700 15px var(--body);background:var(--lagon);color:#fff;padding:12px 18px;border-radius:999px;white-space:nowrap}
+.cta::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg)}
+.cta svg{width:16px;height:16px;transition:transform .2s}
+.une:hover .cta svg{transform:translateX(3px)}
+
+/* ---------- listes ---------- */
+section{display:flex;flex-direction:column;gap:8px}
+h2{font:700 13px/1 var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--lagon);margin:0 4px}
+.group{border-radius:22px;background:var(--row);border:1px solid var(--row-line);overflow:hidden;-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px)}
+a.it{display:grid;grid-template-columns:48px minmax(0,1fr) 18px;gap:14px;align-items:center;padding:14px 16px;color:inherit;text-decoration:none;transition:background .2s}
+a.it + a.it{border-top:1px solid var(--row-line)}
+a.it:hover{background:var(--camel-soft)}
+a.it:hover .chev{transform:translateX(3px);color:var(--lagon)}
+a:focus-visible{outline:2px solid var(--lagon);outline-offset:2px;border-radius:18px}
+.lg{width:48px;height:48px;border-radius:13px;background:var(--tile);display:grid;place-items:center;overflow:hidden;box-shadow:0 6px 14px -8px rgba(14,42,51,.45);transition:transform .25s cubic-bezier(.2,.7,.2,1.4)}
+a.it:hover .lg{transform:rotate(-6deg) scale(1.06)}
+.lg img{width:100%;height:100%;object-fit:cover}
+.lg.ic img{width:56%;height:56%;object-fit:contain}
+.lg.round{border-radius:50%}
+.lg.duo{position:relative;background:transparent;box-shadow:none}
+.lg.duo span{position:absolute;width:32px;height:32px;border-radius:9px;background:var(--tile);display:grid;place-items:center;overflow:hidden;box-shadow:0 4px 10px -6px rgba(14,42,51,.5)}
+.lg.duo span:first-child{left:0;top:0} .lg.duo span:last-child{right:0;bottom:0}
+.lg.duo img{width:100%;height:100%;object-fit:cover} .lg.duo .ic img{width:62%;height:62%;object-fit:contain}
+.t{font:700 17px/1.2 var(--head);letter-spacing:-.01em;min-width:0}
+.d{font-size:14px;color:var(--soft);margin-top:2px}
+.pill{display:inline-block;font:700 11px/1 var(--body);letter-spacing:.05em;text-transform:uppercase;color:var(--lagon);background:color-mix(in srgb,var(--lagon) 14%,transparent);padding:4px 7px;border-radius:6px;margin-left:6px;vertical-align:2px}
+.chev{width:18px;height:18px;color:var(--faint);transition:transform .2s,color .2s}
+
+/* ---------- suivre ---------- */
+.follow{position:relative;overflow:hidden;display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;align-items:center;border-radius:24px;padding:18px;background:var(--stage);color:#F4F1EA;text-decoration:none;box-shadow:0 22px 40px -26px rgba(14,42,51,.7)}
+.follow .lg{width:56px;height:56px;border-radius:16px;background:#F4F1EA}
+.follow .t{font-size:19px}
+.follow .d{color:rgba(244,241,234,.72)}
+.bar{grid-column:1/-1;height:8px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden}
+.bar i{display:block;height:100%;width:50%;border-radius:4px;background:linear-gradient(90deg,var(--lagon-hi),var(--camel));transform-origin:0 50%}
+.bar-l{grid-column:1/-1;display:flex;justify-content:space-between;font-size:12.5px;color:rgba(244,241,234,.72);margin-top:-6px;font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--faint);text-align:center;margin:0 auto;max-width:44ch}
+
+/* ---------- mouvement ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .stage .h1{animation:drift 14s ease-in-out infinite alternate}
+  .stage .h2{animation:drift 18s ease-in-out infinite alternate-reverse}
+  @keyframes drift{to{transform:translate(60px,40px) scale(1.15)}}
+  .eyebrow i{animation:ping 1.8s ease-out infinite}
+  @keyframes ping{70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+  .hl::after{animation:sweep .9s .35s cubic-bezier(.7,0,.2,1) both}
+  @keyframes sweep{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .mas img{animation:pop .9s .15s cubic-bezier(.2,.9,.3,1.4) both,float 3.2s 1.1s ease-in-out infinite}
+  @keyframes pop{from{transform:translateY(40px) scale(.7)}to{transform:none}}
+  @keyframes float{50%{transform:translateY(-10px)}}
+  .stat{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+  .stat:nth-child(2){animation-delay:.12s}
+  .une,.group,.follow{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+  .une{animation-delay:.1s} section:nth-of-type(2) .group{animation-delay:.18s} section:nth-of-type(3) .group{animation-delay:.24s} section:nth-of-type(4) .group{animation-delay:.3s}
+  @keyframes rise{from{transform:translateY(18px)}to{transform:none}}
+  .cta::after{animation:shine 3.2s 1.2s ease-in-out infinite}
+  @keyframes shine{0%{left:-60%}35%,100%{left:130%}}
+  .new i{animation:blink 1.4s ease-in-out infinite}
+  @keyframes blink{50%{opacity:.3}}
+  .bar i{animation:fill 1.4s .5s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+  .une:hover,.follow:hover{transform:translateY(-3px)}
+  .une,.follow{transition:transform .25s}
+}
+/* ---------- mon dernier Reel ---------- */
+.reel{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;align-items:center;padding:14px;border-radius:24px;background:var(--row);border:1px solid var(--row-line)}
+.reel .vid{position:relative;width:150px;max-width:100%;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#0E2A33;box-shadow:0 16px 30px -18px rgba(14,42,51,.6)}
+.reel video{width:100%;height:100%;object-fit:cover;display:block}
+.reel .snd{position:absolute;right:8px;bottom:8px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(14,42,51,.7);color:#fff;display:grid;place-items:center;cursor:pointer}
+.reel .snd svg{width:18px;height:18px}
+.reel .k{font:700 12px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--lagon)}
+.reel .t{font-size:20px;margin-top:6px}
+.reel .d{margin-top:6px}
+.soon{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;margin-top:12px;font:600 13px var(--body);color:var(--soft);background:var(--camel-soft);padding:7px 11px;border-radius:999px}
+.soon img{width:16px;height:16px}
+/* ---------- carte YouTube ---------- */
+.yt{display:block;border-radius:22px;overflow:hidden;background:var(--row);border:1px solid var(--row-line);color:inherit;text-decoration:none}
+.yt .scr{position:relative;aspect-ratio:16/7;max-width:100%;background:linear-gradient(135deg,#0E2A33,#1F6F8B);display:grid;place-items:center;overflow:hidden}
+.yt .scr img.av{position:absolute;left:16px;bottom:-26px;width:96px;height:96px;border-radius:50%;border:4px solid var(--paper);opacity:.95}
+.yt .play{width:68px;height:48px;border-radius:14px;background:#E62117;display:grid;place-items:center;box-shadow:0 12px 24px -10px rgba(230,33,23,.7);transition:transform .2s}
+.yt .play svg{width:22px;height:22px}
+.yt:hover .play{transform:scale(1.08)}
+.yt .lbl{position:absolute;right:14px;top:12px;font:600 12px var(--body);color:rgba(244,241,234,.8)}
+.yt .bd{padding:14px 16px 16px 128px;min-height:72px}
+.yt .bd .d b{color:var(--ink)}
+/* ---------- services ---------- */
+.svc{border-radius:24px;padding:20px;background:var(--row);border:1px solid var(--row-line);display:flex;flex-direction:column;gap:14px}
+.svc .t{font-size:21px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font:600 13.5px var(--body);padding:8px 12px;border-radius:12px;background:var(--paper);border:1px solid var(--row-line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 15px var(--body);padding:13px 18px;border-radius:999px;text-decoration:none;border:0;cursor:pointer}
+.btn.dark{background:var(--ink);color:var(--paper)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--row-line)}
+.row2{display:flex;gap:10px;flex-wrap:wrap}
+/* ---------- soutenir ---------- */
+.kofi{position:relative;overflow:hidden;border-radius:24px;padding:20px;background:linear-gradient(135deg,var(--camel),#B98A5E);color:#0E2A33;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center}
+.kofi .t{font-size:21px}
+.kofi .d{color:rgba(14,42,51,.78)}
+.kofi .cup{font-size:40px;line-height:1}
+.kofi .btn{grid-column:1/-1;background:#0E2A33;color:#F4F1EA}
+.kofi .btn[aria-disabled="true"]{opacity:.55;cursor:default}
+/* ---------- contact ---------- */
+.mail{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-radius:22px;padding:16px;background:var(--row);border:1px solid var(--row-line)}
+.mail code{flex:1 1 200px;min-width:0;font:600 16px var(--body);user-select:all;overflow-wrap:anywhere}
+.mail .btn{padding:10px 14px;font-size:14px}
+.ok{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (prefers-reduced-motion:no-preference){
+  .reel,.yt,.svc,.kofi,.mail{animation:rise .7s .2s cubic-bezier(.2,.8,.2,1) both}
+  .kofi .cup{display:inline-block;animation:steam 2.4s ease-in-out infinite}
+  @keyframes steam{50%{transform:rotate(-8deg) translateY(-3px)}}
+}
+/* ---------- choisir son offre Granola ---------- */
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:460px){.pick{grid-template-columns:1fr}}
+.opt{display:flex;flex-direction:column;gap:6px;padding:16px;border-radius:20px;background:var(--row);border:1.5px solid var(--row-line);color:inherit;text-decoration:none;transition:border-color .2s,transform .2s}
+.opt:hover{border-color:var(--lagon);transform:translateY(-2px)}
+.opt .who{font:700 12px/1 var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--lagon)}
+.opt .gift{font:800 22px/1.1 var(--head);letter-spacing:-.02em}
+.opt .d{margin:0}
+.opt .go{margin-top:6px;font:700 14px var(--body);color:var(--lagon)}
+.grh{display:flex;align-items:center;gap:12px;margin:0 4px 4px}
+.grh .lg{width:40px;height:40px;border-radius:11px}
+.grh .t{font-size:19px}
+/* filigranes dans les blocs encre (charte : logos et mascotte en très faible opacité) */
+.stage .wm{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.stage .wm img{position:absolute;filter:grayscale(1) brightness(2.2);opacity:.07}
+.stage .wm .w1{width:260px;right:-70px;top:-40px;transform:rotate(-12deg)}
+.stage .wm .w2{width:120px;left:58%;top:42%;transform:rotate(14deg);opacity:.05}
+.stage .wm .w3{width:96px;left:-24px;top:48%;transform:rotate(-18deg);opacity:.06}
+.stage .wm .w4{width:84px;left:40%;top:-16px;transform:rotate(22deg);opacity:.05}
+.follow{isolation:isolate}
+.follow .wm{position:absolute;right:-30px;top:-40px;width:220px;opacity:.08;filter:grayscale(1) brightness(2.4);z-index:-1;transform:rotate(-10deg);pointer-events:none}
+.follow .wm2{position:absolute;right:-18px;bottom:-60px;width:140px;opacity:.1;z-index:-1;pointer-events:none}
+/* fond de page : filigranes de la charte (mascotte et logos), très discrets, visibles surtout sur grand écran */
+.bgwm{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bgwm img{position:absolute;opacity:var(--wm-op);filter:grayscale(1)}
+.bgwm .m{filter:grayscale(.4);opacity:var(--wm-op-m)}
+.bgwm .a{width:min(34vw,420px);left:-4vw;top:8vh;transform:rotate(-8deg)}
+.bgwm .b{width:min(22vw,280px);left:6vw;bottom:-4vh;transform:rotate(10deg)}
+.bgwm .c{width:min(30vw,380px);right:-5vw;top:30vh;transform:rotate(6deg)}
+.bgwm .l1{width:min(14vw,170px);left:24vw;top:46vh;transform:rotate(-16deg)}
+.bgwm .l2{width:min(12vw,150px);right:20vw;top:4vh;transform:rotate(18deg)}
+.bgwm .l3{width:min(12vw,150px);right:14vw;bottom:6vh;transform:rotate(-12deg)}
+.bgwm .l4{width:min(10vw,120px);left:18vw;top:-2vh;transform:rotate(12deg)}
+@media (max-width:640px){.bgwm .l1,.bgwm .l2,.bgwm .b{display:none}}
+/* miniatures de ses vidéos dans le bandeau de la carte YouTube */
+.yt .scr{aspect-ratio:16/8}
+.yt .thumbs{position:absolute;inset:0;z-index:0}
+.yt .thumbs img{position:absolute;width:62%;border-radius:12px;box-shadow:0 16px 30px -14px rgba(0,0,0,.7);transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.yt .thumbs .t1{left:-6%;top:14%;transform:rotate(-7deg)}
+.yt .thumbs .t2{right:-8%;top:30%;transform:rotate(6deg)}
+.yt:hover .thumbs .t1{transform:rotate(-9deg) translateX(-6px)}
+.yt:hover .thumbs .t2{transform:rotate(8deg) translateX(6px)}
+.yt .scr::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(14,42,51,.15),rgba(14,42,51,.55))}
+.yt .play,.yt .lbl,.yt .scr img.av{z-index:2}
+.yt .lbl{background:rgba(14,42,51,.6);padding:5px 9px;border-radius:8px}
+/* chaînes : défilement horizontal, une carte à la fois */
+.rh{display:flex;justify-content:space-between;align-items:center;margin:0 4px}
+.rh h2{margin:0}
+.swipe-hint{display:inline-flex;align-items:center;gap:6px;font:600 12.5px var(--body);color:var(--soft)}
+.swipe-hint svg{width:14px;height:14px}
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 2px 6px;margin:0 -2px}
+.rail::-webkit-scrollbar{display:none}
+.rail .yt{flex:0 0 86%;scroll-snap-align:start;transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s}
+.rail .yt.dim{transform:scale(.96);opacity:.7}
+.dots{display:flex;justify-content:center;gap:6px}
+.dots i{width:6px;height:6px;border-radius:3px;background:var(--row-line);transition:width .3s,background .3s}
+.dots i.on{width:18px;background:var(--lagon)}
+.yt .scr.ss{background:linear-gradient(135deg,#123843,#1F6F8B 60%,#C8A27A)}
+.chipsyt{position:absolute;inset:0;z-index:0;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:8px;padding:18px 18px 34px;transform:rotate(-6deg) scale(1.08)}
+.chipsyt span{font:800 15px var(--head);color:#F4F1EA;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:7px 12px;border-radius:12px}
+.yt .av.ini{position:absolute;left:16px;bottom:-26px;width:96px;height:96px;border-radius:50%;border:4px solid var(--paper);background:linear-gradient(135deg,#C8A27A,#1F6F8B);display:grid;place-items:center;font:800 30px var(--head);color:#fff;z-index:2}
+@media (prefers-reduced-motion:no-preference){
+  .swipe-hint svg{animation:nudge 1.6s ease-in-out infinite}
+  @keyframes nudge{50%{transform:translateX(4px)}}
+  .chipsyt span{animation:bob 4s ease-in-out infinite}
+  .chipsyt span:nth-child(2n){animation-delay:-2s}
+  @keyframes bob{50%{transform:translateY(-4px)}}
+}
+/* Mes Reels : carrousel vertical 9:16, seule la vidéo visible joue */
+.rrail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:2px 2px 6px;margin:0 -2px}
+.rrail::-webkit-scrollbar{display:none}
+.rcard{flex:0 0 58%;max-width:240px;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px;transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s}
+.rcard.dim{transform:scale(.94);opacity:.65}
+.rcard .vid{position:relative;aspect-ratio:9/16;max-width:100%;border-radius:20px;overflow:hidden;background:#0E2A33;box-shadow:0 18px 32px -18px rgba(14,42,51,.65)}
+.rcard video,.rcard .vid img{width:100%;height:100%;object-fit:cover;display:block}
+.rcard .snd{position:absolute;right:8px;bottom:8px;width:34px;height:34px;border-radius:50%;border:0;background:rgba(14,42,51,.7);color:#fff;display:grid;place-items:center;cursor:pointer}
+.rcard .snd svg{width:18px;height:18px}
+.rcard .cap{padding:0 4px}
+.rcard .k{font:700 12px/1 var(--body);letter-spacing:.07em;text-transform:uppercase;color:var(--lagon)}
+.rcard .cap .t{font-size:16px;margin-top:4px}
+.soon-card .vid img{filter:saturate(.7) blur(1.5px);transform:scale(1.04)}
+.veil{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(14,42,51,.25),rgba(14,42,51,.6))}
+.badge-soon{display:inline-flex;align-items:center;gap:8px;font:700 13px var(--body);color:#F4F1EA;background:rgba(14,42,51,.85);border:1px solid rgba(255,255,255,.18);padding:9px 13px;border-radius:999px}
+.badge-soon i{width:8px;height:8px;border-radius:50%;background:var(--camel)}
+@media (prefers-reduced-motion:no-preference){.badge-soon i{animation:blink 1.4s ease-in-out infinite}}
+
+/* ---------- boutique ---------- */
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:460px){.shop{grid-template-columns:1fr}}
+.prod{display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:var(--row);border:1px solid var(--row-line);color:inherit;text-decoration:none;transition:transform .25s,border-color .2s}
+.prod:hover{transform:translateY(-3px);border-color:var(--lagon)}
+.prod .im{position:relative;aspect-ratio:4/3;max-width:100%;overflow:hidden;background:#0E2A33}
+.prod .im img{width:100%;height:100%;object-fit:cover;display:block}
+.prod .tag{position:absolute;right:10px;bottom:10px;font:700 11px/1 var(--body);letter-spacing:.07em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:rgba(244,241,234,.92);color:#0E2A33}
+.prod.pro .tag{background:var(--camel);color:#0E2A33}
+.prod .bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.prod .t{font-size:17px}
+.prod .d{margin:0;font-size:13.5px}
+.prod .pr{margin-top:auto;padding-top:8px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.prod .pr b{font:800 20px/1 var(--head);letter-spacing:-.02em}
+.prod .pr span{font:700 13px var(--body);color:var(--lagon)}
+@media (prefers-reduced-motion:reduce){.prod .im img.anim{content:url(img/pack-cv-pro.jpg)}}
+.prod:active{transform:scale(.98)}
+.rcard.tk .vid{background:#F4F1EA}
+.rcard.tk video{object-fit:contain}
+.tkb{position:absolute;left:8px;top:8px;font:700 11px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#F4F1EA;padding:6px 9px;border-radius:999px}
+/* ---------- boîte à outils (modules) ---------- */
+.fil{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 4px;margin:0 -2px}
+.fil::-webkit-scrollbar{display:none}
+.fil button{flex:none;font:600 14px/1 var(--body);border:1px solid var(--row-line);background:var(--row);color:var(--soft);padding:10px 14px;border-radius:999px;cursor:pointer;transition:background .2s,color .2s}
+.fil button.on{background:var(--ink);color:var(--paper);border-color:transparent}
+.mods{display:grid;gap:10px}
+@media (min-width:520px){.mods{grid-template-columns:1fr 1fr}}
+.mod{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;padding:16px;border-radius:22px;background:var(--row);border:1px solid var(--row-line);transition:transform .25s}
+.mod[hidden]{display:none}
+.mod .t{font-size:18px}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.act{font:600 13.5px/1 var(--body);text-decoration:none;padding:9px 12px;border-radius:999px;background:color-mix(in srgb,var(--lagon) 12%,transparent);color:var(--lagon)}
+.act.g{background:var(--camel-soft);color:var(--ink)}
+.act.l{background:var(--ink);color:var(--paper)}
+.act.s{background:transparent;border:1px dashed var(--row-line);color:var(--faint)}
+.act:active,.mod:active{transform:scale(.98)}
+/* ---------- v17 : navigation rapide, partage, apparitions au défilement ---------- */
+.qnav{position:fixed;left:0;right:0;top:0;z-index:20;padding:calc(env(safe-area-inset-top,0px) + 8px) 12px 8px;display:flex;justify-content:center;transform:translateY(-110%);transition:transform .35s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.qnav.show{transform:none;pointer-events:auto}
+.qnav .in{max-width:560px;width:100%;display:flex;align-items:center;gap:6px;padding:6px;border-radius:999px;background:color-mix(in srgb,var(--paper) 90%,transparent);border:1px solid var(--row-line);-webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6);box-shadow:0 14px 30px -18px rgba(14,42,51,.55)}
+.qnav .me{flex:none;width:32px;height:32px;border-radius:50%;background:var(--stage);display:grid;place-items:center;overflow:hidden;border:0;padding:0;cursor:pointer}
+.qnav .me img{width:118%;height:118%;object-fit:cover;object-position:50% 12%}
+.qnav .sc{flex:1;min-width:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.qnav .sc::-webkit-scrollbar{display:none}
+.qnav a{flex:none;font:600 13.5px/1 var(--body);color:var(--soft);text-decoration:none;padding:9px 12px;border-radius:999px;transition:background .25s,color .25s}
+.qnav a.on{background:var(--ink);color:var(--paper)}
+section,.une{scroll-margin-top:72px}
+.share{position:absolute;right:18px;top:24px;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:#F4F1EA;display:grid;place-items:center;cursor:pointer;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);transition:transform .2s,background .2s}
+.share:hover{background:rgba(255,255,255,.16)} .share:active{transform:scale(.92)}
+.share svg{width:19px;height:19px}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 22px);z-index:30;transform:translate(-50%,calc(100% + 40px));opacity:0;font:600 14px var(--body);background:var(--ink);color:var(--paper);padding:11px 16px;border-radius:999px;box-shadow:0 16px 30px -14px rgba(14,42,51,.6);transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .25s;pointer-events:none;white-space:nowrap}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.stage .eyebrow{max-width:calc(100% - 50px);font-size:11.5px;letter-spacing:.05em;white-space:nowrap}
+.une .cv::after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--paper) 92%,transparent));pointer-events:none}
+.une .new{z-index:1}
+.svc .row2 .btn{flex:1 1 100%}
+.svc .row2 .btn svg{width:18px;height:18px}
+.une:active,.yt:active,.opt:active,.follow:active,.kofi .btn:active,.btn:active{transform:scale(.98)}
+a.it:active{background:var(--camel-soft)}
+.foot{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:-6px}
+.foot img{width:64px;height:64px;object-fit:contain}
+.foot .top{font:600 13.5px var(--body);color:var(--lagon);background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px}
+.foot .top svg{width:15px;height:15px}
+.foot small{font-size:12.5px;color:var(--faint)}
+@media (prefers-reduced-motion:no-preference){
+  .js .rv{opacity:.001;transform:translateY(26px) scale(.985);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+  .js .rv.in{opacity:1;transform:none}
+  .foot img{animation:float 3.2s ease-in-out infinite}
+}
+
+/* ---------- ordinateur : la scène reste à gauche, le contenu défile à droite ---------- */
+.col{display:flex;flex-direction:column;gap:26px;min-width:0}
+@media (min-width:980px){
+  .wrap{max-width:1160px;display:grid;grid-template-columns:minmax(360px,420px) minmax(0,1fr);gap:40px;align-items:start;padding-block:32px 64px;padding-left:32px;padding-right:32px}
+  .stage{position:sticky;top:24px}
+  .qnav .in{max-width:760px}
+  .une .cv{aspect-ratio:16/10}
+}
+@media (min-width:980px) and (max-height:760px){.stage{position:relative;top:auto}}
+.soon-card.tk .vid img{object-fit:contain}
+</style>
+
+<nav class="qnav" id="qnav" aria-label="Aller à une section"><div class="in">
+  <button class="me" type="button" id="toTop" aria-label="Revenir en haut"><img src="img/mascotte.png" alt=""></button>
+  <div class="sc" id="qsc"><a href="#r">Vidéos</a><a href="#granola">Granola</a><a href="#shop">Boutique</a><a href="#g">Boîte à outils</a><a href="#c">Chaînes</a><a href="#w">Services</a><a href="#k">Soutenir</a><a href="#contact">Contact</a></div>
+</div></nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="bgwm" aria-hidden="true"><img class="m a" src="img/m-tablette.png" alt=""><img class="m b" src="img/m-pouce.png" alt=""><img class="m c" src="img/m-reflechit.png" alt=""><img class="l1" src="img/granola-mark.svg" alt=""><img class="l2" src="img/claude.svg" alt=""><img class="l3" src="img/si-instagram.svg" alt=""><img class="l4" src="img/canva.png" alt=""></div>
+<div class="wrap">
+  <header class="stage">
+    <div class="h h1"></div><div class="h h2"></div>
+    <button class="share" type="button" id="share" aria-label="Partager cette page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button>
+    <div class="wm" aria-hidden="true"><img class="w1" src="img/granola-mark.svg" alt=""><img class="w2" src="img/canva.png" alt=""><img class="w3" src="img/claude.svg" alt=""><img class="w4" src="img/metricool.png" alt=""></div>
+    <span class="eyebrow"><i></i>Nouveau chaque semaine</span>
+    <h1>Je teste<span class="rot" id="rot"><span>Canva</span></span><span class="hl">pour toi.</span></h1>
+    <p class="lead">Loan, depuis la Guyane. Les guides, outils et chaînes que je recommande, au même endroit.</p>
+    <div class="mas">
+      <div class="stats">
+        <div class="stat"><b data-n="6">6</b><span>outils dans ma boîte</span></div>
+        <div class="stat"><b data-n="5" data-s="/10">5/10</b><span>épisodes de la série</span></div>
+      </div>
+      <div class="ped"></div>
+      <img src="img/mascotte-celebre.png" alt="La mascotte de Loan qui célèbre">
+    </div>
+    <div class="marq" id="marq" role="region" aria-label="Les outils dont je parle : fais défiler, touche un logo pour ouvrir le site"><div class="track" id="track"><a class="lg ic" href="https://claude.ai" target="_blank" rel="noopener" title="Claude" aria-label="Claude"><img src="img/claude.svg" alt=""></a><a class="lg ic" href="https://chatgpt.com" target="_blank" rel="noopener" title="ChatGPT" aria-label="ChatGPT"><img src="img/openai.svg" alt=""></a><a class="lg ic" href="https://gemini.google.com" target="_blank" rel="noopener" title="Gemini" aria-label="Gemini"><img src="img/gemini.svg" alt=""></a><a class="lg" href="https://www.canva.com" target="_blank" rel="noopener" title="Canva" aria-label="Canva"><img src="img/canva.png" alt=""></a><a class="lg pt" href="https://join.granola.ai/t/xuad935spk" target="_blank" rel="noopener" title="Granola · lien partenaire" aria-label="Granola (lien partenaire)"><img src="img/granola.png" alt=""></a><a class="lg pt" href="https://i.mtr.cool/loanhsl" target="_blank" rel="noopener" title="Metricool · lien partenaire" aria-label="Metricool (lien partenaire)"><img src="img/metricool.png" alt=""></a><a class="lg" href="https://typefully.com" target="_blank" rel="noopener" title="Typefully" aria-label="Typefully"><img src="img/typefully.png" alt=""></a><a class="lg ic pt" href="https://try.elevenlabs.io/cbkiucjm26qv" target="_blank" rel="noopener" title="ElevenLabs · lien partenaire" aria-label="ElevenLabs (lien partenaire)"><img src="img/elevenlabs.svg" alt=""></a><a class="lg ic" href="https://github.com" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><img src="img/si-github.svg" alt=""></a><a class="lg ic" href="https://mail.google.com" target="_blank" rel="noopener" title="Gmail" aria-label="Gmail"><img src="img/si-gmail.svg" alt=""></a><a class="lg ic" href="https://drive.google.com" target="_blank" rel="noopener" title="Google Drive" aria-label="Google Drive"><img src="img/si-googledrive.svg" alt=""></a><a class="lg ic" href="https://meet.google.com" target="_blank" rel="noopener" title="Google Meet" aria-label="Google Meet"><img src="img/si-googlemeet.svg" alt=""></a><a class="lg ic" href="https://www.youtube.com" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube"><img src="img/yt-red.svg" alt=""></a><a class="lg ic" href="https://www.linkedin.com/in/loan-ho-shui-ling-a66a56305" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><img src="img/linkedin.svg" alt=""></a></div></div>
+    <p class="marq-n">Touche un logo pour ouvrir le site <span>· <i></i> lien partenaire</span></p>
+  </header>
+  <div class="col">
+
+  <a class="une" href="https://payhip.com/b/4QbLe" target="_blank" rel="noopener">
+    <div class="cv"><img src="img/pack-cv-ess.jpg" alt="Pack CV : le guide et les 3 modèles"><span class="new"><i></i>À la une</span></div>
+    <div class="bd"><div><div class="t">Le Pack CV</div><div class="d">Ton IA rédige ton CV et ta lettre · dès 15 €</div></div>
+      <span class="cta">Voir le pack <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 10h11M11 5l5 5-5 5"/></svg></span></div>
+  </a>
+
+  <section aria-labelledby="r">
+    <div class="rh"><h2 id="r">Mes vidéos</h2><span class="swipe-hint" aria-hidden="true">Fais glisser <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10h11M11 5l5 5-5 5"/></svg></span></div>
+    <div class="rrail" id="rrail">
+      <div class="rcard soon-card tk" id="vid-tchek3"><div class="vid"><img src="media/tchek-03.jpg" alt=""><div class="veil"><span class="badge-soon"><i></i>Bientôt disponible</span></div></div><div class="cap"><div class="k">Le Tchek IA #3</div><div class="t">Le buzz démonté, ce qui marche vraiment</div></div></div>
+      <div class="rcard soon-card tk"><div class="vid"><img src="media/tchek-02.jpg" alt=""><div class="veil"><span class="badge-soon"><i></i>Bientôt disponible</span></div></div><div class="cap"><div class="k">Le Tchek IA #2</div><div class="t">IA au travail : le CSE d’abord</div></div></div>
+      <div class="rcard soon-card tk"><div class="vid"><img src="media/tchek-01.jpg" alt=""><div class="veil"><span class="badge-soon"><i></i>Bientôt disponible</span></div></div><div class="cap"><div class="k">Le Tchek IA #1</div><div class="t">Ton IA va t’écrire en premier</div></div></div>
+      <div class="rcard soon-card" id="vid-granola"><div class="vid"><img src="media/reel-granola.jpg" alt=""><div class="veil"><span class="badge-soon"><i></i>Bientôt disponible</span></div></div><div class="cap"><div class="k">Granola</div><div class="t">Zéro note en réunion</div></div></div>
+      <div class="rcard soon-card" id="vid-canva"><div class="vid"><img src="media/reel-canva.jpg" alt=""><div class="veil"><span class="badge-soon"><i></i>Bientôt disponible</span></div></div><div class="cap"><div class="k">Claude + Canva</div><div class="t">Tes affiches, créées par l’IA</div></div></div>
+      <div class="rcard soon-card"><div class="vid"><img src="media/reel-programmer.jpg" alt="Couverture du prochain Reel : programmer ses posts"><div class="veil"><span class="badge-soon"><i></i>Bientôt disponible</span></div></div><div class="cap"><div class="k">Prochain Reel</div><div class="t">Programmer tes posts automatiquement</div></div></div>
+    </div>
+    <div class="dots" id="rdots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+    <span class="soon"><img src="img/si-instagram.svg" alt="">Bientôt sur Instagram</span>
+  </section>
+
+  <section aria-labelledby="granola-h" id="granola">
+    <h2 id="granola-h">Essayer Granola</h2>
+    <div class="grh"><div class="lg"><img src="img/granola.png" alt=""></div><div><div class="t">Choisis ton offre</div><div class="d">Selon l’adresse e-mail que tu vas utiliser.</div></div></div>
+    <div class="pick">
+      <a class="opt" href="https://join.granola.ai/t/xuad935spk" target="_blank" rel="noopener"><span class="who">Adresse perso · Gmail, Outlook…</span><span class="gift">2 mois offerts</span><span class="d">Sur l’offre Business, à la création du compte.</span><span class="go">Créer mon compte →</span></a>
+      <a class="opt" href="https://go.granola.ai/hsl-beat" target="_blank" rel="noopener"><span class="who">Adresse pro · entreprise, asso</span><span class="gift">1 mois offert</span><span class="d">Sur l’offre payante. Inscris-toi depuis ton ordinateur.</span><span class="go">Créer mon compte →</span></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="shop">
+    <h2 id="shop">Ma boutique</h2>
+    <div class="shop">
+      <a class="prod" href="https://payhip.com/b/4QbLe" target="_blank" rel="noopener">
+        <div class="im"><img src="img/pack-cv-ess.jpg" alt="Pack CV Essentiel : le guide et les 3 modèles"><span class="tag">Essentiel</span></div>
+        <div class="bd"><div class="t">Pack CV</div><p class="d">Ton IA gratuite rédige ton CV et ta lettre. Tu colles dans un des 3 modèles.</p>
+          <div class="pr"><b>15 €</b><span>Voir le pack →</span></div></div>
+      </a>
+      <a class="prod pro" href="https://payhip.com/b/JTVph" target="_blank" rel="noopener">
+        <div class="im"><img class="anim" src="img/pack-cv-pro.gif" alt="Animation : Claude pose les questions puis livre le CV fini en PDF et Word"><span class="tag">Pro · avec Claude</span></div>
+        <div class="bd"><div class="t">Pack CV Pro</div><p class="d">Claude te livre ton CV et ta lettre finis, en PDF et en Word.</p>
+          <div class="pr"><b>29 €</b><span>Voir le pack →</span></div></div>
+      </a>
+    </div>
+  </section>
+
+  <section aria-labelledby="g" id="boite">
+    <h2 id="g">Ma boîte à outils</h2>
+    <p class="d" style="margin:0 4px 4px">Chaque outil que je teste, avec sa vidéo, son guide et son lien.</p>
+    <div class="fil" id="fil" aria-label="Filtrer les outils"><button class="on" data-f="all">Tout</button><button data-f="outils">Créer ses outils</button><button data-f="reunions">Réunions</button><button data-f="visuels">Visuels</button><button data-f="reseaux">Réseaux sociaux</button><button data-f="voix">Voix</button><button data-f="actu">Actu IA</button></div>
+    <div class="mods" id="mods">
+      <article class="mod" data-cat="reunions"><div class="lg"><img src="img/granola.png" alt=""></div><div class="mb"><div class="t">Granola</div><div class="d">Tes notes de réunion, sans bot dans l’appel</div><div class="acts"><span class="act s">Bientôt</span><a class="act l" href="#granola">Essayer</a></div></div></article>
+      <article class="mod" data-cat="visuels"><div class="lg"><img src="img/canva.png" alt=""></div><div class="mb"><div class="t">Claude + Canva</div><div class="d">L’IA fait la base de ton visuel, tu gardes la main</div><div class="acts"><span class="act s">Bientôt</span></div></div></article>
+      <article class="mod" data-cat="outils"><div class="lg ic"><img src="img/claude.svg" alt=""></div><div class="mb"><div class="t">Créer ton 1er outil avec l’IA</div><div class="d">Un petit outil sur mesure, sans coder, et légalement</div><div class="acts"><span class="act s">Bientôt</span></div></div></article>
+      <article class="mod" data-cat="reseaux"><div class="lg"><img src="img/metricool.png" alt=""></div><div class="mb"><div class="t">Programmer tes posts</div><div class="d">Metricool pour Instagram et TikTok, Typefully pour LinkedIn</div><div class="acts"><a class="act l" href="https://i.mtr.cool/loanhsl" target="_blank" rel="noopener">Metricool</a><a class="act s" href="#r">Vidéo bientôt</a></div></div></article>
+      <article class="mod" data-cat="voix"><div class="lg ic"><img src="img/elevenlabs.svg" alt=""></div><div class="mb"><div class="t">ElevenLabs</div><div class="d">La voix de mes vidéos, générée par IA</div><div class="acts"><a class="act l" href="https://try.elevenlabs.io/cbkiucjm26qv" target="_blank" rel="noopener">Essayer</a></div></div></article>
+      <article class="mod" data-cat="actu"><div class="lg" style="background:#0E2A33"><img src="img/mascotte.png" alt="" style="object-position:50% 15%"></div><div class="mb"><div class="t">Le Tchek IA</div><div class="d">L’actu IA vérifiée : ce qui marche vraiment, et le reste</div><div class="acts"><span class="act s">Bientôt</span></div></div></article>
+    </div>
+    <p class="note" style="margin-top:6px">Les liens « Essayer » sont des liens partenaires : ils ne te coûtent rien de plus.</p>
+  </section>
+
+  <section aria-labelledby="c">
+    <div class="rh"><h2 id="c">Les chaînes à suivre</h2><span class="swipe-hint" aria-hidden="true">Fais glisser <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10h11M11 5l5 5-5 5"/></svg></span></div>
+    <div class="rail" id="rail">
+    <a class="yt" href="https://www.youtube.com/@alejavirivera" target="_blank" rel="noopener">
+      <div class="scr"><div class="thumbs" aria-hidden="true"><img class="t1" src="img/yt-1.jpg" alt=""><img class="t2" src="img/yt-2.jpg" alt=""></div><span class="lbl">YouTube · en espagnol</span><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span><img class="av" src="img/alejavi.png" alt=""></div>
+      <div class="bd"><div class="t">Alejavi Rivera</div><div class="d"><b>590 k</b> abonnés · outils IA gratuits, en espagnol. Sous-titres traduisibles en français.</div></div>
+    </a>
+    <a class="yt" href="https://www.youtube.com/@Shubham_Sharma" target="_blank" rel="noopener">
+      <div class="scr"><div class="thumbs" aria-hidden="true"><img class="t1" src="img/ss-1.jpg" alt=""><img class="t2" src="img/ss-2.jpg" alt=""></div><span class="lbl">YouTube · en français</span><span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span><img class="av" src="img/shubham.png" alt=""></div>
+      <div class="bd"><div class="t">Shubham Sharma</div><div class="d"><b>324 k</b> abonnés · IA, automatisation et productivité, en français. La base de ma série « IA, les bases ».</div></div>
+    </a>
+    </div>
+    <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i></div>
+  </section>
+
+  <section aria-labelledby="w">
+    <h2 id="w">Travailler avec moi</h2>
+    <div class="svc">
+      <div><div class="t">Un projet ? Je peux t’aider.</div><div class="d">Pour les indépendants, TPE et associations, en Guyane et ailleurs.</div></div>
+      <div class="chips"><span>Design graphique</span><span>Documents et présentations</span><span>Sites web</span><span>IA et automatisation</span><span>Formation aux outils</span></div>
+      <div class="row2"><a class="btn dark" id="svcBtn" href="https://www.linkedin.com/in/loan-ho-shui-ling-a66a56305" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>Voir mes services sur LinkedIn</a><a class="btn ghost" href="https://www.linkedin.com/in/loan-ho-shui-ling-a66a56305" target="_blank" rel="noopener">M’écrire sur LinkedIn</a></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="k">
+    <h2 id="k">Me soutenir</h2>
+    <div class="kofi">
+      <div><div class="t">Un guide t’a fait gagner du temps ?</div><div class="d">Offre-moi un café : ça finance les prochains tests et guides gratuits.</div></div>
+      <span class="cup" aria-hidden="true">☕</span>
+      <a class="btn" id="kofi" href="#k" aria-disabled="true">Bientôt disponible</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Me contacter</h2>
+    <div class="mail">
+      <a class="btn dark" style="flex:1 1 100%" href="mailto:hidairloan@gmail.com?subject=Bonjour%20Loan%20%E2%80%94%20depuis%20ta%20page%20de%20liens">✉️ M’écrire un e-mail</a>
+      <code id="em">hidairloan@gmail.com</code>
+      <button class="btn ghost" id="cp" type="button">Copier</button>
+    </div>
+    <div class="d" style="margin:0 4px">Le bouton ouvre ta messagerie avec mon adresse déjà remplie. S’il ne s’ouvre pas, copie l’adresse.</div>
+    <div class="ok" id="okm" role="status"></div>
+  </section>
+
+  <a class="follow" href="https://www.linkedin.com/in/loan-ho-shui-ling-a66a56305" target="_blank" rel="noopener">
+    <img class="wm" src="img/linkedin.svg" alt="" aria-hidden="true"><img class="wm2" src="img/mascotte-pointe.png" alt="" aria-hidden="true">
+    <div class="lg ic"><img src="img/linkedin.svg" alt=""></div>
+    <div><div class="t">Suis la série sur LinkedIn</div><div class="d">Un outil testé chaque jour ouvré, à 8 h</div></div>
+    <div class="bar" aria-hidden="true"><i></i></div>
+    <div class="bar-l"><span>« Je teste les outils pour toi »</span><span>5 / 10</span></div>
+  </a>
+
+  <p class="note">Les liens « partenaire » ne te coûtent rien de plus et soutiennent mon travail.</p>
+  <footer class="foot">
+    <img src="img/m-pouce.png" alt="">
+    <button class="top" type="button" id="toTop2"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10 16V4M5 9l5-5 5 5"/></svg>Revenir en haut</button>
+    <small>Fait avec soin par Loan · 2026</small>
+  </footer>
+  </div>
+</div>
+
+<script>
+// le mot du titre change : Canva → Granola → Metricool → Claude…
+(function(){
+  var words=['Canva','Granola','Metricool','Claude','ElevenLabs','les outils'], i=0, box=document.getElementById('rot');
+  // double le bandeau pour une boucle sans couture
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // un seul mot affiché à la fois : on change le texte du même élément (aucun empilement si l'onglet passe en arrière-plan)
+  var el=box.querySelector('span'), busy=false;
+  function fit(){el.style.fontSize='';var r=box.clientWidth/el.scrollWidth;el.style.fontSize=r<1?(r*100).toFixed(1)+'%':'';}
+  fit(); window.addEventListener('resize',fit);
+  setInterval(function(){
+    if(document.hidden||busy) return;
+    while(box.children.length>1) box.lastChild.remove();
+    busy=true; i=(i+1)%words.length;
+    var out=el.animate([{transform:'translateY(0)',opacity:1},{transform:'translateY(-100%)',opacity:0}],{duration:300,easing:'cubic-bezier(.7,0,.2,1)'});
+    out.onfinish=out.oncancel=function(){
+      el.textContent=words[i]; fit();
+      var inn=el.animate([{transform:'translateY(100%)',opacity:0},{transform:'translateY(0)',opacity:1}],{duration:320,easing:'cubic-bezier(.2,.8,.2,1)'});
+      inn.onfinish=inn.oncancel=function(){busy=false;};
+      setTimeout(function(){busy=false;},800);
+    };
+    setTimeout(function(){if(busy&&el.textContent!==words[i]){el.textContent=words[i];busy=false;}},900);
+  },2200);
+})();
+// bandeau de logos : défile tout seul, se met en pause au survol / au toucher, se fait glisser à la main, chaque logo ouvre le site
+(function(){
+  var m=document.getElementById('marq'), tr=document.getElementById('track');
+  var html=tr.innerHTML; tr.innerHTML=html+html.replace(/<a /g,'<a tabindex="-1" aria-hidden="true" ');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pos=0, pause=0, last=0, half=0, SPEED=28;
+  function measure(){half=tr.scrollWidth/2;}
+  measure(); window.addEventListener('resize',measure); window.addEventListener('load',measure);
+  function hold(ms){pause=Math.max(pause,performance.now()+ms);}
+  var over=false;
+  m.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')over=true;});
+  m.addEventListener('pointerleave',function(){over=false;hold(800);});
+  m.addEventListener('touchstart',function(){hold(4000);},{passive:true});
+  m.addEventListener('focusin',function(){over=true;}); m.addEventListener('focusout',function(){over=false;});
+  m.addEventListener('wheel',function(){hold(2500);},{passive:true});
+  // glisser à la souris (sur mobile, le défilement tactile natif suffit)
+  var down=null, moved=false;
+  m.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down={x:e.clientX,s:m.scrollLeft};moved=false;});
+  window.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-down.x;if(Math.abs(dx)>4){moved=true;m.classList.add('drag');}m.scrollLeft=down.s-dx;});
+  window.addEventListener('pointerup',function(){if(!down)return;down=null;m.classList.remove('drag');hold(1500);});
+  m.addEventListener('click',function(e){if(moved){e.preventDefault();moved=false;}},true);
+  m.addEventListener('scroll',function(){
+    if(!half) return;
+    if(m.scrollLeft>=half){m.scrollLeft-=half;if(down)down.s-=half;}
+    else if(m.scrollLeft<=0&&(down||performance.now()<pause)){m.scrollLeft+=half;if(down)down.s+=half;}
+    pos=m.scrollLeft;
+  },{passive:true});
+  if(reduce) return;
+  function step(t){
+    var dt=last?Math.min(t-last,60):0; last=t;
+    if(!over&&!down&&t>pause&&!document.hidden&&half){pos+=SPEED*dt/1000; if(pos>=half)pos-=half; m.scrollLeft=pos;}
+    else pos=m.scrollLeft;
+    requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+})();
+// lien Ko-fi : à remplir dès que le compte existe
+(function(){var KOFI='https://ko-fi.com/loanhsl';var a=document.getElementById('kofi');
+  if(KOFI){a.href=KOFI;a.target='_blank';a.rel='noopener';a.removeAttribute('aria-disabled');a.textContent='Offrir un café sur Ko-fi';}
+  else a.addEventListener('click',function(e){e.preventDefault();});})();
+// copier l'adresse
+document.getElementById('cp').addEventListener('click',function(){var t=document.getElementById('em').textContent,ok=document.getElementById('okm');
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('em'));var s=getSelection();s.removeAllRanges();s.addRange(r);ok.textContent='Adresse sélectionnée : copie-la avec ton appareil.';}
+  try{navigator.clipboard.writeText(t).then(function(){ok.textContent='Adresse copiée.';},sel);}catch(e){sel();}});
+// ouverture : toujours en haut de page (ou sur la section demandée), jamais sur l'ancienne position de défilement
+(function(){try{history.scrollRestoration='manual';}catch(e){}
+  function go(){var h=location.hash&&document.getElementById(location.hash.slice(1));if(h)h.scrollIntoView({block:'start'});else window.scrollTo(0,0);}
+  go();window.addEventListener('load',function(){go();setTimeout(go,250);});})();
+// carrousel des chaînes : points et carte active
+(function(){var r=document.getElementById('rail'),d=document.querySelectorAll('#dots i'),c=r.querySelectorAll('.yt');
+  function upd(){var w=c[0].offsetWidth+12,k=Math.round(r.scrollLeft/w);d.forEach(function(x,j){x.classList.toggle('on',j===k);});c.forEach(function(x,j){x.classList.toggle('dim',j!==k);});}
+  r.addEventListener('scroll',function(){requestAnimationFrame(upd);},{passive:true});upd();})();
+// Mes Reels : la vidéo au centre joue (sans le son), les autres sont en pause ; un bouton active le son
+(function(){var r=document.getElementById('rrail');if(!r)return;var cards=[].slice.call(r.querySelectorAll('.rcard')),dots=document.querySelectorAll('#rdots i');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function cur(){if(r.scrollLeft>=r.scrollWidth-r.clientWidth-4)return cards.length-1;var w=cards[0].offsetWidth+12;return Math.min(cards.length-1,Math.round(r.scrollLeft/w));}
+  function upd(){var k=cur();cards.forEach(function(c,j){c.classList.toggle('dim',j!==k);var v=c.querySelector('video');if(!v)return;
+      if(j===k&&!reduce&&!document.hidden){var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});
+    dots.forEach(function(d,j){d.classList.toggle('on',j===k);});}
+  r.addEventListener('scroll',function(){requestAnimationFrame(upd);},{passive:true});
+  document.addEventListener('visibilitychange',upd);
+  cards.forEach(function(c){var b=c.querySelector('.snd'),v=c.querySelector('video');if(!b)return;
+    b.addEventListener('click',function(){var on=v.muted;cards.forEach(function(o){var ov=o.querySelector('video');if(ov&&ov!==v)ov.muted=true;});
+      v.muted=!on;if(on){v.currentTime=0;v.play();}b.setAttribute('aria-label',v.muted?'Activer le son':'Couper le son');});});
+  upd();})();
+
+// v17 : apparitions au défilement, navigation rapide, partage, compteurs
+document.documentElement.classList.add('js');
+(function(){
+  var reveal=[].slice.call(document.querySelectorAll('.wrap > section, .wrap > .follow'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+    reveal.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('rv','in');else{el.classList.add('rv');io.observe(el);}});
+  }
+  // barre de navigation : apparaît une fois la scène d'ouverture passée, surligne la section en cours
+  var nav=document.getElementById('qnav'),stage=document.querySelector('.stage'),links=[].slice.call(nav.querySelectorAll('a')),sc=document.getElementById('qsc');
+  var secs=links.map(function(a){var h=document.getElementById(a.getAttribute('href').slice(1));return h&&(h.closest('section')||h);});
+  var last=-1;
+  function tick(){var show=stage.getBoundingClientRect().bottom<0;nav.classList.toggle('show',show);
+    var k=0;secs.forEach(function(s,j){if(s&&s.getBoundingClientRect().top<150)k=j;});
+    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)k=secs.length-1;
+    if(k!==last){last=k;links.forEach(function(a,j){a.classList.toggle('on',j===k);});
+      var a=links[k];if(show)sc.scrollTo({left:a.offsetLeft-sc.clientWidth/2+a.offsetWidth/2,behavior:'smooth'});}}
+  addEventListener('scroll',function(){requestAnimationFrame(tick);},{passive:true});tick();
+  links.forEach(function(a){a.addEventListener('click',function(e){var s=secs[links.indexOf(a)];if(!s)return;e.preventDefault();s.scrollIntoView({behavior:'smooth',block:'start'});});});
+  function top(){scrollTo({top:0,behavior:'smooth'});}
+  document.getElementById('toTop').addEventListener('click',top);document.getElementById('toTop2').addEventListener('click',top);
+  // partager : feuille de partage du téléphone, sinon copie du lien
+  var toast=document.getElementById('toast'),tt;
+  function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show');},2200);}
+  document.getElementById('share').addEventListener('click',function(){var u=location.href.split('#')[0],d={title:'Les liens de Loan',text:'Les guides et outils IA que Loan teste pour toi',url:u};
+    if(navigator.share){navigator.share(d).catch(function(){});return;}
+    try{navigator.clipboard.writeText(u).then(function(){say('Lien copié');},function(){say('Copie le lien depuis la barre d’adresse');});}catch(e){say('Copie le lien depuis la barre d’adresse');}});
+  document.getElementById('cp').addEventListener('click',function(){setTimeout(function(){var m=document.getElementById('okm').textContent;if(m)say(m);},120);});
+  // compteurs de la scène d'ouverture
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('.stat b[data-n]').forEach(function(b){var n=+b.dataset.n,s=b.dataset.s||'',t0=null;
+    function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/900),e=1-Math.pow(1-p,3);b.textContent=Math.round(n*e)+s;if(p<1)requestAnimationFrame(f);}
+    b.textContent='0'+s;setTimeout(function(){requestAnimationFrame(f);},350);});
+})();
+
+// boîte à outils : filtres par usage + liens « Vidéo » qui amènent la bonne carte du carrousel
+(function(){var f=document.getElementById('fil');if(!f)return;var mods=[].slice.call(document.querySelectorAll('.mod'));
+  f.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    [].forEach.call(f.children,function(x){x.classList.toggle('on',x===b);});
+    mods.forEach(function(m){m.hidden=!(b.dataset.f==='all'||m.dataset.cat===b.dataset.f);});});
+  document.querySelectorAll('.act.v[href^="#vid-"]').forEach(function(a){a.addEventListener('click',function(e){var c=document.getElementById(a.getAttribute('href').slice(1));if(!c)return;e.preventDefault();
+    document.getElementById('r').closest('section').scrollIntoView({behavior:'smooth',block:'start'});
+    var r=document.getElementById('rrail');setTimeout(function(){r.scrollTo({left:c.offsetLeft-r.offsetLeft,behavior:'smooth'});},400);});});
+})();
+</script>
+
+</html>
