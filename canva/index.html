@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<title>Guide Claude + Canva de Loan</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="mascotte.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Mise en page : colonne de lecture unique, pensée pour le téléphone (arrivée par QR code), charte « Col roulé » de Loan */
+:root {
+  --paper: #F4F1EA; --ink: #0E2A33; --lagon: #1F6F8B; --camel: #C8A27A; --brume: #E6E9E5;
+  --soft: rgba(14,42,51,.72); --card: rgba(255,255,255,.72); --card-line: rgba(255,255,255,.95);
+  --camel-bg: #DEC19E; --on-camel: #0E2A33; --warn: #B4472F; --warn-bg: rgba(180,71,47,.09);
+  --btn-bg: #0E2A33; --btn-fg: #FFFFFF; --chip: rgba(14,42,51,.07); --logo-filter: none;
+  --head: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0B2229; --ink: #EEF1EC; --lagon: #6FB3CB; --camel: #D6B48E; --brume: #16343E;
+  --soft: rgba(238,241,236,.72); --card: rgba(255,255,255,.06); --card-line: rgba(255,255,255,.10);
+  --camel-bg: #C8A27A; --on-camel: #0E2A33; --warn: #E8957F; --warn-bg: rgba(232,149,127,.12);
+  --btn-bg: #EEF1EC; --btn-fg: #0E2A33; --chip: rgba(255,255,255,.08); --logo-filter: invert(1); color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --paper: #0B2229; --ink: #EEF1EC; --lagon: #6FB3CB; --camel: #D6B48E; --brume: #16343E;
+  --soft: rgba(238,241,236,.72); --card: rgba(255,255,255,.06); --card-line: rgba(255,255,255,.10);
+  --camel-bg: #C8A27A; --on-camel: #0E2A33; --warn: #E8957F; --warn-bg: rgba(232,149,127,.12);
+  --btn-bg: #EEF1EC; --btn-fg: #0E2A33; --chip: rgba(255,255,255,.08); --logo-filter: invert(1); color-scheme: dark; }
+
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; font-synthesis: none; -webkit-font-smoothing: antialiased; }
+.hl-cv { background: linear-gradient(transparent 60%, rgba(0,196,204,.30) 60%, rgba(125,42,232,.26) 92%, transparent 92%); }
+.mark { position: fixed; right: -12vmin; bottom: -10vmin; width: 70vmin; max-width: 560px; opacity: .05; border-radius: 50%; filter: grayscale(1); pointer-events: none; z-index: 0; filter: var(--logo-filter); }
+.wrap { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding-left: max(18px, env(safe-area-inset-left, 0px)); padding-right: max(18px, env(safe-area-inset-right, 0px)); padding-block: 28px 56px; display: flex; flex-direction: column; gap: 22px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--soft); }
+.top .logos { display: flex; align-items: center; gap: 8px; font-family: var(--head); font-weight: 800; color: var(--ink); }
+.top .logos img { height: 28px; }
+.top .logos img.cv { border-radius: 50%; }
+.hero { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: end; }
+.hero > div { min-width: 0; }
+.kick { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--lagon); }
+h1 { font-family: var(--head); font-weight: 800; font-size: clamp(36px, 9vw, 54px); line-height: 1.02; letter-spacing: -.03em; margin: 8px 0 12px; text-wrap: balance; }
+h1 .hl { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--camel) 60%, transparent) 60%, color-mix(in srgb, var(--camel) 60%, transparent) 92%, transparent 92%); }
+.lead { color: var(--soft); font-size: 18px; margin: 0; max-width: 34ch; }
+.hero img { width: 150px; max-width: 32vw; display: block; }
+.ctas { display: flex; flex-direction: column; gap: 10px; }
+.btn { display: flex; align-items: center; justify-content: space-between; gap: 12px; text-decoration: none; border-radius: 18px; padding: 16px 20px; font-weight: 600; font-size: 17px; }
+.btn small { display: block; font-weight: 500; font-size: 13.5px; opacity: .8; margin-top: 2px; }
+.btn.main { background: var(--btn-bg); color: var(--btn-fg); }
+.btn.alt { background: var(--card); color: var(--ink); border: 1px solid var(--card-line); }
+.btn:focus-visible { outline: 3px solid var(--lagon); outline-offset: 3px; }
+.btn svg { width: 22px; height: 22px; flex: none; }
+.disc { font-size: 13.5px; color: var(--soft); margin: -2px 4px 0; }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+.toc a { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; background: var(--chip); border-radius: 14px; padding: 6px 12px; }
+section { display: flex; flex-direction: column; gap: 10px; }
+h2 { font-family: var(--head); font-weight: 800; font-size: 28px; line-height: 1.1; letter-spacing: -.02em; margin: 10px 0 0; text-wrap: balance; }
+h3 { font-family: var(--head); font-weight: 700; font-size: 19px; margin: 0 0 4px; }
+p { margin: 0; }
+.card { background: var(--card); border: 1px solid var(--card-line); border-radius: 20px; padding: 16px 18px; }
+.card.camel { background: var(--camel-bg); color: var(--on-camel); border-color: transparent; }
+.card.warn { background: var(--warn-bg); border-color: transparent; }
+.card.warn b { color: var(--warn); }
+ol, ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+li::marker { color: var(--lagon); font-weight: 600; }
+.chip { display: inline-block; font-size: 13px; font-weight: 600; background: var(--chip); border-radius: 10px; padding: 2px 9px; margin: 2px 2px 0 0; }
+.kbd { font-weight: 600; background: var(--card); border: 1px solid var(--card-line); border-radius: 6px; padding: 0 6px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+.foot { font-size: 13.5px; color: var(--soft); border-top: 1px solid var(--card-line); padding-top: 16px; display: flex; flex-direction: column; gap: 6px; }
+.foot a { color: var(--lagon); }
+@media (max-width: 420px) { .hero { grid-template-columns: 1fr; } .hero img { display: none; } }
+</style>
+
+<img class="mark" src="canva.png" alt="">
+<div class="wrap">
+  <div class="top"><span class="logos"><img src="claude.svg" alt="Claude">+<img class="cv" src="canva.png" alt="Canva"></span><span>Guide indépendant par Loan Ho Shui Ling</span></div>
+
+  <div class="hero">
+    <div>
+      <div class="kick">Je teste les outils pour toi</div>
+      <h1>Claude + Canva : <span class="hl-cv">l’IA crée, tu retouches</span></h1>
+      <p class="lead">Connecter Canva à Claude, demander un design, le retoucher et le décliner.</p>
+    </div>
+    <img src="mascotte.png" alt="">
+  </div>
+
+  <div class="ctas">
+    <a class="btn main" href="guide-claude-canva.pdf">
+      <span>Lire le guide complet<small>10 pages · à garder ou à partager</small></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5"/></svg>
+    </a>
+    <a class="btn alt" href="https://www.canva.com/" target="_blank" rel="noopener" id="cta-canva">
+      <span>Essayer Canva<small>Le connecteur marche aussi avec le compte gratuit</small></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+  <nav class="toc" aria-label="Sommaire">
+    <a href="#pourquoi">Pourquoi</a><a href="#connecter">Connecter</a><a href="#demander">Demander</a><a href="#retoucher">Retoucher</a><a href="#decliner">Décliner</a><a href="#reflexes">Réflexes</a>
+  </nav>
+
+  <section id="pourquoi">
+    <h2>Pourquoi passer par Canva ?</h2>
+    <p>Une image générée par IA est figée : une faute dans le titre, et il faut tout régénérer. Avec le connecteur Canva, Claude crée un <b>vrai design Canva</b>, avec des blocs séparés que tu modifies un par un.</p>
+    <div class="card"><b>Où ça marche :</b> <span class="chip">Claude</span><span class="chip">ChatGPT</span><span class="chip">Microsoft Copilot (aperçu)</span><span class="chip">Amazon Quick Suite</span><br>Gemini est annoncé.</div>
+  </section>
+
+  <section id="connecter">
+    <h2>Connecter Canva à Claude</h2>
+    <ol>
+      <li>Dans Claude, ouvre <b>Settings</b> puis <b>Connectors</b>.</li>
+      <li>Choisis <b>Canva</b> et connecte ton compte Canva.</li>
+      <li>Ouvre une nouvelle conversation et active <b>Canva</b> dans ses connecteurs.</li>
+    </ol>
+    <div class="card warn"><b>Ça ne répond pas ?</b> Nouvelle conversation, vérifie que Canva est activé. Sinon, déconnecte puis reconnecte-le.</div>
+  </section>
+
+  <section id="demander">
+    <h2>Écrire la bonne demande</h2>
+    <p>Donne toujours <b>le format</b>, <b>le texte exact</b> et <b>l’ambiance</b>.</p>
+    <div class="grid">
+      <div class="card"><h3>Affiche</h3><p>« Affiche A4 pour la porte ouverte de samedi, 9 h–17 h, “Café offert”. Bleu foncé et beige, très épuré. »</p></div>
+      <div class="card"><h3>Réseaux sociaux</h3><p>« Post Instagram pour annoncer nos nouveaux horaires : lundi–vendredi 8 h–18 h. Style moderne. »</p></div>
+      <div class="card"><h3>Présentation</h3><p>« 6 slides pour présenter notre association aux partenaires. Ton chaleureux, photos de terrain. »</p></div>
+    </div>
+  </section>
+
+  <section id="retoucher">
+    <h2>Retoucher dans Canva</h2>
+    <ul>
+      <li>Ouvre le lien du design : il est dans ton compte Canva.</li>
+      <li>Clique sur un bloc (titre, date, photo) pour le modifier.</li>
+      <li>Change police et couleurs, remplace les photos par les tiennes.</li>
+    </ul>
+    <div class="card camel"><h3>Le conseil de Loan</h3><p>Demande à l’IA une base, pas un résultat final. C’est toi qui signes.</p></div>
+  </section>
+
+  <section id="decliner">
+    <h2>Décliner et exporter</h2>
+    <ul>
+      <li><b>Redimensionner</b> pour une story ou une bannière <span class="chip">offre payante</span></li>
+      <li><b>Exporter</b> en PDF pour l’imprimeur, en PNG ou JPG pour les réseaux.</li>
+      <li>Tes designs restent dans Canva, même si tu déconnectes Claude.</li>
+    </ul>
+  </section>
+
+  <section id="reflexes">
+    <h2>Les trois réflexes</h2>
+    <div class="grid">
+      <div class="card"><h3>Relire</h3><p>Dates, prix, orthographe : chaque texte, avant de publier.</p></div>
+      <div class="card"><h3>Ta marque</h3><p>Ton logo, tes couleurs, tes vraies photos : c’est ce qui évite l’effet « fait par une IA ».</p></div>
+      <div class="card"><h3>Rien de sensible</h3><p>Pas de données clients ni de chiffres internes dans tes demandes.</p></div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <span>Informations relevées le 16 octobre 2026 sur les pages officielles de Canva (canva.com/ai-connector, aide « Connect Claude to Canva »). Les offres peuvent évoluer.</span>
+    <span>Guide indépendant, non affilié à Canva ni à Anthropic. Suis la série « Je teste les outils pour toi » sur LinkedIn : <b>Loan Ho Shui Ling</b>.</span>
+  </div>
+</div>
+<style>
+#pdfv{position:fixed;inset:0;z-index:999;background:#0E2A33;display:none;flex-direction:column}
+#pdfv.on{display:flex}
+#pdfv .bar{display:flex;align-items:center;gap:10px;padding:12px 16px;color:#fff;font:600 15px/1.2 system-ui,sans-serif}
+#pdfv .bar span{flex:1}
+#pdfv button{border:0;border-radius:10px;padding:9px 14px;font:600 14px system-ui,sans-serif;background:#fff;color:#0E2A33;cursor:pointer}
+#pdfv .pages{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:0 16px 24px;display:flex;flex-direction:column;align-items:center;gap:14px}
+#pdfv canvas{width:100%;max-width:640px;height:auto;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.35);background:#fff}
+#pdfv .msg{color:#fff;font:15px system-ui,sans-serif;padding:24px;text-align:center}
+</style>
+<div id="pdfv" role="dialog" aria-label="Guide en PDF"><div class="bar"><span>Le guide complet</span><button type="button" id="pdfdl" hidden>Télécharger</button><button type="button" id="pdfx">Fermer</button></div><div class="pages"></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+(function(){
+  var a=document.querySelector('a[href$=".pdf"]'); if(!a) return;
+  var href=a.getAttribute('href'), name=href.split('/').pop();
+  var box=document.getElementById('pdfv'), pages=box.querySelector('.pages'), dlb=document.getElementById('pdfdl');
+  var dl=null, blob=null, done=false;
+  try{ if(window.claude&&window.claude.use){ window.claude.use("downloads").then(function(d){ dl=d; if(d) dlb.hidden=false; }).catch(function(){}); } }catch(e){}
+  document.getElementById('pdfx').onclick=function(){ box.classList.remove('on'); document.body.style.overflow=''; };
+  dlb.onclick=function(){ if(dl&&blob){ dl.save({filename:name,data:blob}).catch(function(){}); } };
+  a.addEventListener('click',function(e){
+    if(!window.pdfjsLib) return;
+    e.preventDefault(); box.classList.add('on'); document.body.style.overflow='hidden';
+    if(done) return; done=true;
+    pages.innerHTML='<div class="msg">Chargement du guide…</div>';
+    pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    fetch(href).then(function(r){ if(!r.ok) throw 0; return r.arrayBuffer(); }).then(function(buf){
+      blob=new Blob([buf.slice(0)],{type:'application/pdf'});
+      return pdfjsLib.getDocument({data:buf}).promise;
+    }).then(function(pdf){
+      pages.innerHTML=''; var w=Math.min(pages.clientWidth-32,640), r=Math.min(window.devicePixelRatio||1,2);
+      var chain=Promise.resolve();
+      for(var i=1;i<=pdf.numPages;i++){(function(n){ chain=chain.then(function(){ return pdf.getPage(n).then(function(p){
+        var v=p.getViewport({scale:1}), s=w/v.width*r, vp=p.getViewport({scale:s});
+        var c=document.createElement('canvas'); c.width=vp.width; c.height=vp.height; pages.appendChild(c);
+        return p.render({canvasContext:c.getContext('2d'),viewport:vp}).promise; }); }); })(i);}
+      return chain;
+    }).catch(function(){ done=false; pages.innerHTML='<div class="msg">Impossible d’afficher le guide ici. Réessaie dans un instant.</div>'; });
+  });
+})();
+</script>
+</html>
