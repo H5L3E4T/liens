@@ -309,7 +309,17 @@ a.it:hover .lg{transform:rotate(-6deg) scale(1.06)}
 .zop .zh .d{margin:4px 0 0;font-size:13.5px;color:var(--soft)}
 .zop .zt{flex:none;font:700 11px/1 var(--body);letter-spacing:.07em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:var(--camel-soft);color:var(--ink)}
 .zop .tiers{display:flex;flex-direction:column;border-radius:16px;overflow:hidden;border:1px solid var(--row-line)}
-.zop .tier{display:flex;align-items:center;gap:12px;padding:12px 14px;color:inherit;text-decoration:none;transition:background .2s}
+.zop .tier{display:flex;align-items:center;gap:12px;width:100%;padding:12px 14px;color:inherit;text-decoration:none;text-align:left;font:inherit;background:transparent;border:0;cursor:pointer;transition:background .2s}
+.zop .tier .rd{flex:none;width:20px;height:20px;border-radius:50%;border:2px solid var(--row-line);box-shadow:inset 0 0 0 2px var(--paper);transition:background .2s,border-color .2s}
+.zop .tier.on .rd{background:var(--lagon);border-color:var(--lagon)}
+.zop .tier.on{background:color-mix(in srgb,var(--lagon) 10%,transparent)}
+.zop .tier:focus-visible{outline:2px solid var(--lagon);outline-offset:-2px}
+.zpay{display:flex;flex-direction:column;gap:8px}
+.zece{min-height:48px}
+.zclosed{display:flex;align-items:center;gap:8px;justify-content:center;min-height:48px;padding:0 14px;border-radius:12px;border:1px dashed var(--row-line);font-size:13px;color:var(--soft);text-align:center}
+.zclosed .w{flex:none;font:700 12px/1 var(--body);padding:6px 9px;border-radius:8px;background:var(--ink);color:var(--paper)}
+.zcard{align-self:center;font:600 13.5px var(--body);color:var(--lagon);text-decoration:none;padding:6px 8px}
+.zmsg{margin:0;font-size:13.5px;text-align:center;padding:10px 12px;border-radius:12px;background:var(--camel-soft)}
 .zop .tier+.tier{border-top:1px solid var(--row-line)}
 .zop .tier:hover{background:var(--camel-soft)}
 .zop .tier:active{transform:scale(.99)}
@@ -317,12 +327,9 @@ a.it:hover .lg{transform:rotate(-6deg) scale(1.06)}
 .zop .tier .n b{display:block;font-size:15px}
 .zop .tier .n span{display:block;font-size:12.5px;color:var(--soft);margin-top:2px}
 .zop .tier .p{font:800 18px/1 var(--head);letter-spacing:-.02em;white-space:nowrap}
-.zop .tier .p small{display:block;font:600 11px var(--body);color:var(--lagon);text-align:right;margin-top:4px;letter-spacing:0}
-.zop .tier.star{background:color-mix(in srgb,var(--lagon) 9%,transparent)}
-.zop .pay{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:12.5px;color:var(--soft)}
+.zop .pay{display:flex;align-items:center;justify-content:center;gap:6px;font-size:12.5px;color:var(--soft)}
 .zop .pay svg{width:14px;height:14px;flex:none}
-.zop .pay .w{font:700 12px/1 var(--body);padding:6px 9px;border-radius:8px;background:var(--ink);color:var(--paper)}
-.zop .pay .w.alt{background:transparent;color:var(--ink);border:1px solid var(--row-line)}
+
 .prod:active{transform:scale(.98)}
 .rcard.tk .vid{background:#F4F1EA}
 .rcard.tk video{object-fit:contain}
@@ -461,12 +468,18 @@ a.it:active{background:var(--camel-soft)}
     </div>
     <div class="zop" id="zero-oubli-paie">
       <div class="zh"><div><div class="t">Zéro Oubli Paie</div><p class="d">Contrôle ta paie Silae chaque mois avec ton IA : primes oubliées, heures sup, arrêts manquants. Sans code.</p></div><span class="zt">Bientôt</span></div>
-      <div class="tiers">
-        <a class="tier" href="https://buy.stripe.com/00w5kE6zF9vw461e77cfK00" target="_blank" rel="noopener"><div class="n"><b>Essentiel</b><span>Parcours guidé, guide PDF, phrase de lancement</span></div><div class="p">29 €<small>Payer →</small></div></a>
-        <a class="tier star" href="https://buy.stripe.com/aFacN6aPV3780TP5ABcfK01" target="_blank" rel="noopener"><div class="n"><b>Pro · avec Claude</b><span>+ la skill qui livre ton tableau d’écarts en Excel</span></div><div class="p">59 €<small>Payer →</small></div></a>
-        <a class="tier" href="https://buy.stripe.com/7sY8wQbTZ0Z06e9d33cfK02" target="_blank" rel="noopener"><div class="n"><b>Accompagnement</b><span>Installé et testé avec moi, visio ou à Cayenne</span></div><div class="p">490 €<small>Réserver →</small></div></a>
+      <div class="tiers" role="radiogroup" aria-label="Choisis ton offre">
+        <button class="tier" type="button" role="radio" aria-checked="false" data-niveau="essentiel" data-amount="2900" data-link="https://buy.stripe.com/00w5kE6zF9vw461e77cfK00"><i class="rd" aria-hidden="true"></i><div class="n"><b>Essentiel</b><span>Parcours guidé, guide PDF, phrase de lancement</span></div><div class="p">29 €</div></button>
+        <button class="tier on" type="button" role="radio" aria-checked="true" data-niveau="pro" data-amount="5900" data-link="https://buy.stripe.com/aFacN6aPV3780TP5ABcfK01"><i class="rd" aria-hidden="true"></i><div class="n"><b>Pro · avec Claude</b><span>+ la skill qui livre ton tableau d’écarts en Excel</span></div><div class="p">59 €</div></button>
+        <button class="tier" type="button" role="radio" aria-checked="false" data-niveau="accompagnement" data-amount="49000" data-link="https://buy.stripe.com/7sY8wQbTZ0Z06e9d33cfK02"><i class="rd" aria-hidden="true"></i><div class="n"><b>Accompagnement</b><span>Installé et testé avec moi, visio ou à Cayenne</span></div><div class="p">490 €</div></button>
       </div>
-      <div class="pay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Paiement en un geste :<span class="w">Apple Pay</span><span class="w alt">Google Pay</span><span class="w alt">Carte</span></div>
+      <div class="zpay" id="zpay">
+        <div id="zece" class="zece" hidden></div>
+        <div class="zclosed" id="zclosed"><span class="w">Apple Pay</span>Paiement en un geste à l’ouverture des ventes</div>
+        <a class="zcard" id="zcard" href="https://buy.stripe.com/aFacN6aPV3780TP5ABcfK01" target="_blank" rel="noopener">Payer par carte bancaire →</a>
+        <p class="zmsg" id="zmsg" role="status" aria-live="polite" hidden></p>
+      </div>
+      <div class="pay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span>Paiement sécurisé par Stripe · Apple Pay, Google Pay ou carte</span></div>
     </div>
   </section>
 
@@ -679,6 +692,57 @@ document.documentElement.classList.add('js');
   document.querySelectorAll('.act.v[href^="#vid-"]').forEach(function(a){a.addEventListener('click',function(e){var c=document.getElementById(a.getAttribute('href').slice(1));if(!c)return;e.preventDefault();
     document.getElementById('r').closest('section').scrollIntoView({behavior:'smooth',block:'start'});
     var r=document.getElementById('rrail');setTimeout(function(){r.scrollTo({left:c.offsetLeft-r.offsetLeft,behavior:'smooth'});},400);});});
+})();
+</script>
+
+<script>
+// Zéro Oubli Paie : choix de l'offre + bouton Apple Pay / Google Pay intégré (Stripe Express Checkout)
+(function(){
+  var box=document.getElementById('zero-oubli-paie'); if(!box) return;
+  var tiers=[].slice.call(box.querySelectorAll('.tier')), card=document.getElementById('zcard'),
+      ece=document.getElementById('zece'), closed=document.getElementById('zclosed'), msg=document.getElementById('zmsg');
+  var cur=box.querySelector('.tier.on'), stripe=null, elements=null;
+  function say(t){msg.textContent=t;msg.hidden=!t;}
+  function pick(b){
+    tiers.forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-checked',on?'true':'false');});
+    cur=b; card.href=b.dataset.link; say('');
+    if(elements) elements.update({amount:+b.dataset.amount});
+  }
+  tiers.forEach(function(b){b.addEventListener('click',function(){pick(b);});});
+  if(/[?&]zop=merci/.test(location.search)) say('Merci ! Ton paiement est validé. Tu reçois ton accès par e-mail.');
+  fetch('/api/zop',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(cfg){
+    if(!cfg||!cfg.open||!cfg.pk) return;
+    var s=document.createElement('script'); s.src='https://js.stripe.com/v3/'; s.onload=function(){start(cfg.pk);}; document.head.appendChild(s);
+  }).catch(function(){});
+  function start(pk){
+    stripe=Stripe(pk,{locale:'fr'});
+    elements=stripe.elements({mode:'payment',amount:+cur.dataset.amount,currency:'eur',paymentMethodTypes:['card']});
+    var el=elements.create('expressCheckout',{
+      buttonType:{applePay:'buy',googlePay:'buy'}, buttonHeight:48,
+      paymentMethods:{applePay:'always',googlePay:'auto',link:'never',paypal:'never',amazonPay:'never',klarna:'never'},
+      paymentMethodOrder:['apple_pay','google_pay'], layout:{maxColumns:1,maxRows:2,overflow:'never'}
+    });
+    el.on('ready',function(e){
+      if(e.availablePaymentMethods&&(e.availablePaymentMethods.applePay||e.availablePaymentMethods.googlePay)){ece.hidden=false;closed.hidden=true;}
+      else{closed.hidden=true;}
+    });
+    el.on('click',function(e){e.resolve({emailRequired:true,phoneNumberRequired:cur.dataset.niveau==='accompagnement',
+      lineItems:[{name:cur.querySelector('b').textContent,amount:+cur.dataset.amount}]});});
+    el.on('confirm',function(e){
+      var niveau=cur.dataset.niveau, email=e.billingDetails&&e.billingDetails.email;
+      elements.submit().then(function(sub){
+        if(sub.error) throw sub.error;
+        return fetch('/api/zop',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({niveau:niveau,email:email})});
+      }).then(function(r){if(!r.ok) throw new Error('intent');return r.json();})
+      .then(function(d){return stripe.confirmPayment({elements:elements,clientSecret:d.clientSecret,redirect:'if_required',
+        confirmParams:{return_url:'https://loanhsl.app/?zop=merci#zero-oubli-paie'}});})
+      .then(function(res){
+        if(res&&res.error){say('Le paiement n’est pas passé. Réessaie, ou paie par carte juste en dessous.');return;}
+        say('Merci ! Ton paiement est validé. Tu reçois ton accès par e-mail.');
+      }).catch(function(){e.paymentFailed&&e.paymentFailed();say('Le paiement n’est pas passé. Réessaie, ou paie par carte juste en dessous.');});
+    });
+    el.mount('#zece');
+  }
 })();
 </script>
 
