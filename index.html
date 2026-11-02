@@ -316,6 +316,9 @@ a.it:hover .lg{transform:rotate(-6deg) scale(1.06)}
 .zop .tier:focus-visible{outline:2px solid var(--lagon);outline-offset:-2px}
 .zpay{display:flex;flex-direction:column;gap:8px}
 .zece{min-height:48px}
+.zece.wait{position:absolute;left:-9999px;top:0;width:320px;min-height:0}
+.zpay{position:relative}
+.zop .tier[hidden]{display:none}
 .zclosed{display:flex;align-items:center;gap:8px;justify-content:center;min-height:48px;padding:0 14px;border-radius:12px;border:1px dashed var(--row-line);font-size:13px;color:var(--soft);text-align:center}
 .zclosed .w{flex:none;font:700 12px/1 var(--body);padding:6px 9px;border-radius:8px;background:var(--ink);color:var(--paper)}
 .zcard{align-self:center;font:600 13.5px var(--body);color:var(--lagon);text-decoration:none;padding:6px 8px}
@@ -475,7 +478,7 @@ a.it:active{background:var(--camel-soft)}
         <button class="tier" type="button" role="radio" aria-checked="false" data-offre="zop-accompagnement" data-amount="49000" data-link="https://buy.stripe.com/7sY8wQbTZ0Z06e9d33cfK02"><i class="rd" aria-hidden="true"></i><div class="n"><b>Accompagnement</b><span>Installé et testé avec moi, visio ou à Cayenne</span></div><div class="p">490 €</div></button>
       </div>
       <div class="zpay" id="zpay">
-        <div id="zece" class="zece" hidden></div>
+        <div id="zece" class="zece wait"></div>
         <div class="zclosed" id="zclosed"><span class="w">Apple Pay</span>Paiement en un geste à l’ouverture des ventes</div>
         <a class="zcard" id="zcard" href="https://buy.stripe.com/aFacN6aPV3780TP5ABcfK01" target="_blank" rel="noopener">Payer par carte bancaire →</a>
         <p class="zmsg" id="zmsg" role="status" aria-live="polite" hidden></p>
@@ -725,10 +728,15 @@ document.documentElement.classList.add('js');
       paymentMethods:{applePay:'always',googlePay:'auto',link:'never',paypal:'never',amazonPay:'never',klarna:'never'},
       paymentMethodOrder:['apple_pay','google_pay'], layout:{maxColumns:1,maxRows:2,overflow:'never'}
     });
+    // le bouton doit être affiché (pas display:none) pour que Stripe le prépare : il attend hors écran, puis prend sa place
+    var fallback=setTimeout(function(){closed.hidden=true;},10000);
     el.on('ready',function(e){
-      if(e.availablePaymentMethods&&(e.availablePaymentMethods.applePay||e.availablePaymentMethods.googlePay)){ece.hidden=false;closed.hidden=true;}
-      else{closed.hidden=true;}
+      clearTimeout(fallback);
+      var m=e.availablePaymentMethods;
+      if(m&&(m.applePay||m.googlePay)){ece.classList.remove('wait');}
+      closed.hidden=true;
     });
+    el.on('loaderror',function(){clearTimeout(fallback);closed.hidden=true;});
     el.on('click',function(e){e.resolve({emailRequired:true,phoneNumberRequired:cur.dataset.offre==='zop-accompagnement',
       lineItems:[{name:cur.querySelector('b').textContent,amount:+cur.dataset.amount}]});});
     el.on('confirm',function(e){
