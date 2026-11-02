@@ -710,7 +710,7 @@ document.documentElement.classList.add('js');
   }
   tiers.forEach(function(b){b.addEventListener('click',function(){pick(b);});});
   if(/[?&]zop=merci/.test(location.search)) say('Merci ! Ton paiement est validé. Tu reçois ton accès par e-mail.');
-  fetch('/api/zop',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(cfg){
+  fetch('/api/pay?groupe=zop',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(cfg){
     if(!cfg||!cfg.open||!cfg.pk) return;
     var s=document.createElement('script'); s.src='https://js.stripe.com/v3/'; s.onload=function(){start(cfg.pk);}; document.head.appendChild(s);
   }).catch(function(){});
@@ -732,7 +732,7 @@ document.documentElement.classList.add('js');
       var niveau=cur.dataset.niveau, email=e.billingDetails&&e.billingDetails.email;
       elements.submit().then(function(sub){
         if(sub.error) throw sub.error;
-        return fetch('/api/zop',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({niveau:niveau,email:email})});
+        return fetch('/api/pay',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({offre:'zop-'+niveau,email:email})});
       }).then(function(r){if(!r.ok) throw new Error('intent');return r.json();})
       .then(function(d){return stripe.confirmPayment({elements:elements,clientSecret:d.clientSecret,redirect:'if_required',
         confirmParams:{return_url:location.origin+'/?zop=merci#zero-oubli-paie'}});})
