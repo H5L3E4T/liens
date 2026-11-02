@@ -303,6 +303,26 @@ a.it:hover .lg{transform:rotate(-6deg) scale(1.06)}
 .prod .pr b{font:800 20px/1 var(--head);letter-spacing:-.02em}
 .prod .pr span{font:700 13px var(--body);color:var(--lagon)}
 @media (prefers-reduced-motion:reduce){.prod .im img.anim{content:url(img/pack-cv-pro.jpg)}}
+.zop{margin-top:10px;border-radius:22px;background:var(--row);border:1px solid var(--row-line);padding:16px 16px 14px;display:flex;flex-direction:column;gap:12px}
+.zop .zh{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.zop .zh .t{font:800 19px/1.15 var(--head);letter-spacing:-.02em}
+.zop .zh .d{margin:4px 0 0;font-size:13.5px;color:var(--soft)}
+.zop .zt{flex:none;font:700 11px/1 var(--body);letter-spacing:.07em;text-transform:uppercase;padding:6px 9px;border-radius:999px;background:var(--camel-soft);color:var(--ink)}
+.zop .tiers{display:flex;flex-direction:column;border-radius:16px;overflow:hidden;border:1px solid var(--row-line)}
+.zop .tier{display:flex;align-items:center;gap:12px;padding:12px 14px;color:inherit;text-decoration:none;transition:background .2s}
+.zop .tier+.tier{border-top:1px solid var(--row-line)}
+.zop .tier:hover{background:var(--camel-soft)}
+.zop .tier:active{transform:scale(.99)}
+.zop .tier .n{flex:1;min-width:0}
+.zop .tier .n b{display:block;font-size:15px}
+.zop .tier .n span{display:block;font-size:12.5px;color:var(--soft);margin-top:2px}
+.zop .tier .p{font:800 18px/1 var(--head);letter-spacing:-.02em;white-space:nowrap}
+.zop .tier .p small{display:block;font:600 11px var(--body);color:var(--lagon);text-align:right;margin-top:4px;letter-spacing:0}
+.zop .tier.star{background:color-mix(in srgb,var(--lagon) 9%,transparent)}
+.zop .pay{display:flex;align-items:center;flex-wrap:wrap;gap:6px;font-size:12.5px;color:var(--soft)}
+.zop .pay svg{width:14px;height:14px;flex:none}
+.zop .pay .w{font:700 12px/1 var(--body);padding:6px 9px;border-radius:8px;background:var(--ink);color:var(--paper)}
+.zop .pay .w.alt{background:transparent;color:var(--ink);border:1px solid var(--row-line)}
 .prod:active{transform:scale(.98)}
 .rcard.tk .vid{background:#F4F1EA}
 .rcard.tk video{object-fit:contain}
@@ -438,6 +458,15 @@ a.it:active{background:var(--camel-soft)}
         <div class="bd"><div class="t">Pack CV Pro</div><p class="d">Claude te livre ton CV et ta lettre finis, en PDF et en Word.</p>
           <div class="pr"><b>29 €</b><span>Voir le pack →</span></div></div>
       </a>
+    </div>
+    <div class="zop" id="zero-oubli-paie">
+      <div class="zh"><div><div class="t">Zéro Oubli Paie</div><p class="d">Contrôle ta paie Silae chaque mois avec ton IA : primes oubliées, heures sup, arrêts manquants. Sans code.</p></div><span class="zt">Bientôt</span></div>
+      <div class="tiers">
+        <a class="tier" href="https://buy.stripe.com/00w5kE6zF9vw461e77cfK00" target="_blank" rel="noopener"><div class="n"><b>Essentiel</b><span>Parcours guidé, guide PDF, phrase de lancement</span></div><div class="p">29 €<small>Payer →</small></div></a>
+        <a class="tier star" href="https://buy.stripe.com/aFacN6aPV3780TP5ABcfK01" target="_blank" rel="noopener"><div class="n"><b>Pro · avec Claude</b><span>+ la skill qui livre ton tableau d’écarts en Excel</span></div><div class="p">59 €<small>Payer →</small></div></a>
+        <a class="tier" href="https://buy.stripe.com/7sY8wQbTZ0Z06e9d33cfK02" target="_blank" rel="noopener"><div class="n"><b>Accompagnement</b><span>Installé et testé avec moi, visio ou à Cayenne</span></div><div class="p">490 €<small>Réserver →</small></div></a>
+      </div>
+      <div class="pay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Paiement en un geste :<span class="w">Apple Pay</span><span class="w alt">Google Pay</span><span class="w alt">Carte</span></div>
     </div>
   </section>
 
