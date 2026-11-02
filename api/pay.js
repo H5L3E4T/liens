@@ -16,6 +16,8 @@ const CATALOGUE = {
   'zop-accompagnement': { groupe: 'zop', amount: 49000, label: 'Zéro Oubli Paie · Accompagnement' },
   'cv-essentiel': { groupe: 'cv', amount: 1500, label: 'Pack CV · Essentiel' },
   'cv-pro': { groupe: 'cv', amount: 2900, label: 'Pack CV · Pro' },
+  // Offre cachée pour tester Apple Pay (page ?test=applepay). Fermée si « test » n'est pas dans VENTES_OUVERTES.
+  'test-1euro': { groupe: 'test', amount: 100, label: 'Test Apple Pay · 1 €' },
 };
 
 function ouvert(groupe) {

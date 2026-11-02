@@ -469,9 +469,10 @@ a.it:active{background:var(--camel-soft)}
     <div class="zop" id="zero-oubli-paie">
       <div class="zh"><div><div class="t">Zéro Oubli Paie</div><p class="d">Contrôle ta paie Silae chaque mois avec ton IA : primes oubliées, heures sup, arrêts manquants. Sans code.</p></div><span class="zt">Bientôt</span></div>
       <div class="tiers" role="radiogroup" aria-label="Choisis ton offre">
-        <button class="tier" type="button" role="radio" aria-checked="false" data-niveau="essentiel" data-amount="2900" data-link="https://buy.stripe.com/00w5kE6zF9vw461e77cfK00"><i class="rd" aria-hidden="true"></i><div class="n"><b>Essentiel</b><span>Parcours guidé, guide PDF, phrase de lancement</span></div><div class="p">29 €</div></button>
-        <button class="tier on" type="button" role="radio" aria-checked="true" data-niveau="pro" data-amount="5900" data-link="https://buy.stripe.com/aFacN6aPV3780TP5ABcfK01"><i class="rd" aria-hidden="true"></i><div class="n"><b>Pro · avec Claude</b><span>+ la skill qui livre ton tableau d’écarts en Excel</span></div><div class="p">59 €</div></button>
-        <button class="tier" type="button" role="radio" aria-checked="false" data-niveau="accompagnement" data-amount="49000" data-link="https://buy.stripe.com/7sY8wQbTZ0Z06e9d33cfK02"><i class="rd" aria-hidden="true"></i><div class="n"><b>Accompagnement</b><span>Installé et testé avec moi, visio ou à Cayenne</span></div><div class="p">490 €</div></button>
+        <button class="tier" type="button" role="radio" aria-checked="false" data-offre="zop-essentiel" data-amount="2900" data-link="https://buy.stripe.com/00w5kE6zF9vw461e77cfK00"><i class="rd" aria-hidden="true"></i><div class="n"><b>Essentiel</b><span>Parcours guidé, guide PDF, phrase de lancement</span></div><div class="p">29 €</div></button>
+        <button class="tier on" type="button" role="radio" aria-checked="true" data-offre="zop-pro" data-amount="5900" data-link="https://buy.stripe.com/aFacN6aPV3780TP5ABcfK01"><i class="rd" aria-hidden="true"></i><div class="n"><b>Pro · avec Claude</b><span>+ la skill qui livre ton tableau d’écarts en Excel</span></div><div class="p">59 €</div></button>
+        <button class="tier" type="button" role="radio" aria-checked="false" data-offre="test-1euro" data-amount="100" data-link="#" hidden><i class="rd" aria-hidden="true"></i><div class="n"><b>Test Apple Pay</b><span>Paiement test, remboursé ensuite</span></div><div class="p">1 €</div></button>
+        <button class="tier" type="button" role="radio" aria-checked="false" data-offre="zop-accompagnement" data-amount="49000" data-link="https://buy.stripe.com/7sY8wQbTZ0Z06e9d33cfK02"><i class="rd" aria-hidden="true"></i><div class="n"><b>Accompagnement</b><span>Installé et testé avec moi, visio ou à Cayenne</span></div><div class="p">490 €</div></button>
       </div>
       <div class="zpay" id="zpay">
         <div id="zece" class="zece" hidden></div>
@@ -701,7 +702,8 @@ document.documentElement.classList.add('js');
   var box=document.getElementById('zero-oubli-paie'); if(!box) return;
   var tiers=[].slice.call(box.querySelectorAll('.tier')), card=document.getElementById('zcard'),
       ece=document.getElementById('zece'), closed=document.getElementById('zclosed'), msg=document.getElementById('zmsg');
-  var cur=box.querySelector('.tier.on'), stripe=null, elements=null;
+  var cur=box.querySelector('.tier.on'), stripe=null, elements=null, groupe='zop';
+  if(/[?&]test=applepay/.test(location.search)){groupe='test';tiers.forEach(function(x){x.hidden=x.dataset.offre!=='test-1euro';});cur=box.querySelector('[data-offre="test-1euro"]');}
   function say(t){msg.textContent=t;msg.hidden=!t;}
   function pick(b){
     tiers.forEach(function(x){var on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-checked',on?'true':'false');});
@@ -709,8 +711,9 @@ document.documentElement.classList.add('js');
     if(elements) elements.update({amount:+b.dataset.amount});
   }
   tiers.forEach(function(b){b.addEventListener('click',function(){pick(b);});});
+  pick(cur);
   if(/[?&]zop=merci/.test(location.search)) say('Merci ! Ton paiement est validé. Tu reçois ton accès par e-mail.');
-  fetch('/api/pay?groupe=zop',{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(cfg){
+  fetch('/api/pay?groupe='+groupe,{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(cfg){
     if(!cfg||!cfg.open||!cfg.pk) return;
     var s=document.createElement('script'); s.src='https://js.stripe.com/v3/'; s.onload=function(){start(cfg.pk);}; document.head.appendChild(s);
   }).catch(function(){});
@@ -726,13 +729,13 @@ document.documentElement.classList.add('js');
       if(e.availablePaymentMethods&&(e.availablePaymentMethods.applePay||e.availablePaymentMethods.googlePay)){ece.hidden=false;closed.hidden=true;}
       else{closed.hidden=true;}
     });
-    el.on('click',function(e){e.resolve({emailRequired:true,phoneNumberRequired:cur.dataset.niveau==='accompagnement',
+    el.on('click',function(e){e.resolve({emailRequired:true,phoneNumberRequired:cur.dataset.offre==='zop-accompagnement',
       lineItems:[{name:cur.querySelector('b').textContent,amount:+cur.dataset.amount}]});});
     el.on('confirm',function(e){
-      var niveau=cur.dataset.niveau, email=e.billingDetails&&e.billingDetails.email;
+      var offre=cur.dataset.offre, email=e.billingDetails&&e.billingDetails.email;
       elements.submit().then(function(sub){
         if(sub.error) throw sub.error;
-        return fetch('/api/pay',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({offre:'zop-'+niveau,email:email})});
+        return fetch('/api/pay',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({offre:offre,email:email})});
       }).then(function(r){if(!r.ok) throw new Error('intent');return r.json();})
       .then(function(d){return stripe.confirmPayment({elements:elements,clientSecret:d.clientSecret,redirect:'if_required',
         confirmParams:{return_url:location.origin+'/?zop=merci#zero-oubli-paie'}});})
