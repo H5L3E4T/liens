@@ -735,7 +735,7 @@ document.documentElement.classList.add('js');
         return fetch('/api/zop',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({niveau:niveau,email:email})});
       }).then(function(r){if(!r.ok) throw new Error('intent');return r.json();})
       .then(function(d){return stripe.confirmPayment({elements:elements,clientSecret:d.clientSecret,redirect:'if_required',
-        confirmParams:{return_url:'https://loanhsl.app/?zop=merci#zero-oubli-paie'}});})
+        confirmParams:{return_url:location.origin+'/?zop=merci#zero-oubli-paie'}});})
       .then(function(res){
         if(res&&res.error){say('Le paiement n’est pas passé. Réessaie, ou paie par carte juste en dessous.');return;}
         say('Merci ! Ton paiement est validé. Tu reçois ton accès par e-mail.');
