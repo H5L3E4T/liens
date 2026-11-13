@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/r/granola", "destination": "https://join.granola.ai/t/xuad935spk", "permanent": false },
+    { "source": "/r/metricool", "destination": "https://i.mtr.cool/loanhsl", "permanent": false },
+    { "source": "/r/elevenlabs", "destination": "https://try.elevenlabs.io/cbkiucjm26qv", "permanent": false },
+    { "source": "/r/wispr", "destination": "https://wisprflow.ai/r?HSL4", "permanent": false },
+    { "source": "/r/workspace", "destination": "https://sharegoogleworkspace.advocate.impact.com/mzYPi0i", "permanent": false },
+    { "source": "/guide-granola", "destination": "/granola/", "permanent": true },
+    { "source": "/guide-canva", "destination": "/canva/", "permanent": true }
+  ]
+}
